@@ -145,7 +145,7 @@ public class CreateSet extends javax.swing.JFrame {
                         .addComponent(jLabel5)
                         .addGap(18, 18, 18)
                         .addComponent(jTextField2)))
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()

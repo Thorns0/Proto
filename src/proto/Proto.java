@@ -16,6 +16,8 @@ public class Proto {
     public static void main(String[] args) {
         MainMenu f1 = new MainMenu();
         f1.setVisible(true);
+        test t1 = new test();
+        t1.setVisible(true);
     }
     
 }

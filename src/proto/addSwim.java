@@ -274,8 +274,6 @@ public class addSwim extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        FileWriter fw = null;
-        try {
             String Fname = txtFname.getText();
             String Lname = txtLname.getText();
             String Gname = txtGname.getText();
@@ -289,7 +287,6 @@ public class addSwim extends javax.swing.JFrame {
             String MedGiven = (String) ComMed.getSelectedItem();
             Boolean Med = false;
             Boolean InvalEmail = true;
-            Boolean InvalAdd = false;
             if(Fname.isBlank() || Lname.isBlank() || Gname.isBlank() || Email.isBlank() || Phone.isBlank() || ToJoin.isBlank() || Add1.isBlank() || Add2.isBlank() || Add3.isBlank() || Post.isBlank() || MedGiven.isBlank()){
                 JOptionPane.showMessageDialog(rootPane, "All fields must contain something");
             }
@@ -306,10 +303,12 @@ public class addSwim extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(rootPane, "Email must contain an @");
             }
             else if(Add1.contains(",") || Add2.contains(",") || Add3.contains(",")){
-                InvalAdd = true;
-            }   if(InvalAdd){
                 JOptionPane.showMessageDialog(rootPane, "Fields can't contain a ,");
-            }   fw = new FileWriter("Swimmers.txt", true);
+            } 
+            else{
+            FileWriter fw = null;
+        try {
+            fw = new FileWriter("Swimmers.txt", true);
             BufferedWriter bw = new BufferedWriter(fw);
             bw.write("E");
             //TO BE ABLE TO ADD YOU NEED TO GO TO THE FUNCTION CLASS AND CREATE A FUNCTION TO CREATE A SWIMMER ID
@@ -322,6 +321,7 @@ public class addSwim extends javax.swing.JFrame {
                 Logger.getLogger(addSwim.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
+      }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
