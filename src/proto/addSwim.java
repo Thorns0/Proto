@@ -4,6 +4,11 @@
  */
 package proto;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -269,40 +274,54 @@ public class addSwim extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        String Fname = txtFname.getText();
-        String Lname = txtLname.getText();
-        String Gname = txtGname.getText();
-        String Email = txtEmail.getText();
-        String Phone = txtPhone.getText();
-        String ToJoin = (String) ComToJoin.getSelectedItem();
-        String Add1 = txtAdd1.getText();
-        String Add2 = txtAdd2.getText();
-        String Add3 = txtAdd3.getText();
-        String Post = txtPost.getText();
-        String MedGiven = (String) ComMed.getSelectedItem();
-        Boolean Med = false;
-        Boolean InvalEmail = true;
-        Boolean ValAdd = true;
-        
-        if(Fname.isBlank() || Lname.isBlank() || Gname.isBlank() || Email.isBlank() || Phone.isBlank() || ToJoin.isBlank() || Add1.isBlank() || Add2.isBlank() || Add3.isBlank() || Post.isBlank() || MedGiven.isBlank()){
-            JOptionPane.showMessageDialog(rootPane, "All fields must contain something");
+        FileWriter fw = null;
+        try {
+            String Fname = txtFname.getText();
+            String Lname = txtLname.getText();
+            String Gname = txtGname.getText();
+            String Email = txtEmail.getText();
+            String Phone = txtPhone.getText();
+            String ToJoin = (String) ComToJoin.getSelectedItem();
+            String Add1 = txtAdd1.getText();
+            String Add2 = txtAdd2.getText();
+            String Add3 = txtAdd3.getText();
+            String Post = txtPost.getText();
+            String MedGiven = (String) ComMed.getSelectedItem();
+            Boolean Med = false;
+            Boolean InvalEmail = true;
+            Boolean InvalAdd = false;
+            if(Fname.isBlank() || Lname.isBlank() || Gname.isBlank() || Email.isBlank() || Phone.isBlank() || ToJoin.isBlank() || Add1.isBlank() || Add2.isBlank() || Add3.isBlank() || Post.isBlank() || MedGiven.isBlank()){
+                JOptionPane.showMessageDialog(rootPane, "All fields must contain something");
+            }
+            else if(MedGiven == "Yes"){
+                Med = true;
+            }
+            else if(Phone.length()>11 || Phone.length()<11){
+                JOptionPane.showMessageDialog(rootPane, "phone number must be exactly 11 digits long");
+            }
+            else if(Email.contains("@")){
+                InvalEmail = false;
+            }
+            else if(InvalEmail){
+                JOptionPane.showMessageDialog(rootPane, "Email must contain an @");
+            }
+            else if(Add1.contains(",") || Add2.contains(",") || Add3.contains(",")){
+                InvalAdd = true;
+            }   if(InvalAdd){
+                JOptionPane.showMessageDialog(rootPane, "Fields can't contain a ,");
+            }   fw = new FileWriter("Swimmers.txt", true);
+            BufferedWriter bw = new BufferedWriter(fw);
+            bw.write("E");
+            //TO BE ABLE TO ADD YOU NEED TO GO TO THE FUNCTION CLASS AND CREATE A FUNCTION TO CREATE A SWIMMER ID
+        } catch (IOException ex) {
+            Logger.getLogger(addSwim.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                fw.close();
+            } catch (IOException ex) {
+                Logger.getLogger(addSwim.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
-        else if(MedGiven == "Yes"){
-            Med = true;
-        }
-        else if(Phone.length()>11 || Phone.length()<11){
-            JOptionPane.showMessageDialog(rootPane, "phone number must be exactly 11 digits long");
-        }
-        else if(Email.contains("@")){
-            InvalEmail = false;
-        }
-        else if(InvalEmail){
-            JOptionPane.showMessageDialog(rootPane, "Email must contain an @");
-        }
-        else if(Add1.contains(",") || Add2.contains(",") || Add3.contains(",")){
-            ValAdd = false;
-        }
-        
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
