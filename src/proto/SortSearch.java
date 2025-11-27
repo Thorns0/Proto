@@ -4,6 +4,14 @@
  */
 package proto;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author adg19f
@@ -29,12 +37,12 @@ public class SortSearch extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        fNametxt = new javax.swing.JTextField();
+        txtFname = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        Lnametxt = new javax.swing.JTextField();
+        txtLname = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        SIDtxt = new javax.swing.JTextField();
+        txtID = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
@@ -58,7 +66,7 @@ public class SortSearch extends javax.swing.JFrame {
             }
         });
 
-        fNametxt.setFont(new java.awt.Font("Courier New", 0, 12)); // NOI18N
+        txtFname.setFont(new java.awt.Font("Courier New", 0, 12)); // NOI18N
 
         jLabel2.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
         jLabel2.setText("First name");
@@ -66,12 +74,12 @@ public class SortSearch extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
         jLabel3.setText("Last name");
 
-        Lnametxt.setFont(new java.awt.Font("Courier New", 0, 12)); // NOI18N
+        txtLname.setFont(new java.awt.Font("Courier New", 0, 12)); // NOI18N
 
         jLabel4.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
         jLabel4.setText("SwimmerID");
 
-        SIDtxt.setFont(new java.awt.Font("Courier New", 0, 12)); // NOI18N
+        txtID.setFont(new java.awt.Font("Courier New", 0, 12)); // NOI18N
 
         jButton2.setFont(new java.awt.Font("Courier New", 0, 12)); // NOI18N
         jButton2.setText("Search");
@@ -132,17 +140,17 @@ public class SortSearch extends javax.swing.JFrame {
                         .addGap(8, 8, 8)
                         .addComponent(jLabel3)
                         .addGap(18, 18, 18)
-                        .addComponent(Lnametxt))
+                        .addComponent(txtLname))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addGap(18, 18, 18)
-                        .addComponent(fNametxt, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txtFname, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(14, 14, 14)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(SIDtxt, javax.swing.GroupLayout.DEFAULT_SIZE, 149, Short.MAX_VALUE)
+                        .addComponent(txtID, javax.swing.GroupLayout.DEFAULT_SIZE, 149, Short.MAX_VALUE)
                         .addGap(17, 17, 17))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jButton2)
@@ -157,13 +165,13 @@ public class SortSearch extends javax.swing.JFrame {
                     .addComponent(jButton1))
                 .addGap(52, 52, 52)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(fNametxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtFname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2)
                     .addComponent(jLabel4)
-                    .addComponent(SIDtxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Lnametxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtLname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3)
                     .addComponent(jButton2))
                 .addGap(45, 45, 45)
@@ -200,9 +208,83 @@ public class SortSearch extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        String fname = fNametxt.getText();
-        String lname = Lnametxt.getText();
-        String sID = SIDtxt.getText();
+        String fname = txtFname.getText();
+        String lname = txtLname.getText();
+        String sID = txtID.getText();
+        Boolean useName = true;
+        Boolean useID = true;
+        Boolean found = false;
+        String [] items = null;
+        int i = 0;
+        if(fname.isBlank()||lname.isBlank()){
+            useName = false;
+        }
+        if(sID.isBlank()){
+            useID = false;
+        }
+        if(!useName && !useID){
+            JOptionPane.showMessageDialog(rootPane, "Input either the swimmer's first and last name or SwimmerID");
+        }
+        else if(useName){
+            FileReader fr = null;
+            try {
+                fr = new FileReader("Swimmers.txt");
+                BufferedReader br = new BufferedReader(fr);
+                String Line;
+                try {
+                    while((Line=br.readLine())!=null && !found){
+                        items = Line.split(",");
+                        if(items[1].equals(fname) && items[2].equals(lname)){
+                            found = true;
+                        }
+                    }
+                } catch (IOException ex) {
+                    Logger.getLogger(SortSearch.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            } catch (FileNotFoundException ex) {
+                Logger.getLogger(SortSearch.class.getName()).log(Level.SEVERE, null, ex);
+            } finally {
+                try {
+                    fr.close();
+                } catch (IOException ex) {
+                    Logger.getLogger(SortSearch.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }
+        else if(useID){
+            FileReader fr = null;
+            String Line;
+            try {
+                fr = new FileReader("Swimmers.txt");
+                BufferedReader br = new BufferedReader(fr);
+                try {
+                    while((Line=br.readLine())!=null && !found){
+                        items=Line.split(",");
+                        if(items[0].equals(sID)){
+                            found=true;
+                        }
+                    }
+                } catch (IOException ex) {
+                    Logger.getLogger(SortSearch.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            } catch (FileNotFoundException ex) {
+                Logger.getLogger(SortSearch.class.getName()).log(Level.SEVERE, null, ex);
+            } finally {
+                try {
+                    fr.close();
+                } catch (IOException ex) {
+                    Logger.getLogger(SortSearch.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }
+        //if(found){
+           // for(i; i<items.length(); i++){
+                
+            //}
+       // }
+        //else{
+            //JOptionPane.showMessageDialog(rootPane, "Swimmer not found");
+        //}
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
@@ -241,9 +323,6 @@ public class SortSearch extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField Lnametxt;
-    private javax.swing.JTextField SIDtxt;
-    private javax.swing.JTextField fNametxt;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -257,5 +336,8 @@ public class SortSearch extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JTextField txtFname;
+    private javax.swing.JTextField txtID;
+    private javax.swing.JTextField txtLname;
     // End of variables declaration//GEN-END:variables
 }
