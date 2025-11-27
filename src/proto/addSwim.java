@@ -274,6 +274,8 @@ public class addSwim extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+            Functions Fun = new Functions();
+            int ID;
             String Fname = txtFname.getText();
             String Lname = txtLname.getText();
             String Gname = txtGname.getText();
@@ -310,8 +312,7 @@ public class addSwim extends javax.swing.JFrame {
         try {
             fw = new FileWriter("Swimmers.txt", true);
             BufferedWriter bw = new BufferedWriter(fw);
-            bw.write("E");
-            //TO BE ABLE TO ADD YOU NEED TO GO TO THE FUNCTION CLASS AND CREATE A FUNCTION TO CREATE A SWIMMER ID
+            ID = Fun.CreateID("Swimmers.txt");
         } catch (IOException ex) {
             Logger.getLogger(addSwim.class.getName()).log(Level.SEVERE, null, ex);
         } finally {

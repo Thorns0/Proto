@@ -16,13 +16,20 @@ import java.util.logging.Logger;
  * @author adg19f
  */
 public class Functions {
-    public String CreateID(String file){
+    public String GetLastLine(String file){
         String val = "0";
         FileReader fr = null;
         try {
-            String line;
+            String Line;
             fr = new FileReader(file);
             BufferedReader br = new BufferedReader(fr);
+            try {
+                while((Line=br.readLine())!=null){
+                    val = Line;
+                }
+            } catch (IOException ex) {
+                Logger.getLogger(Functions.class.getName()).log(Level.SEVERE, null, ex);
+            }
                 
         } catch (FileNotFoundException ex) {
             Logger.getLogger(Functions.class.getName()).log(Level.SEVERE, null, ex);
@@ -34,5 +41,22 @@ public class Functions {
             }
         }
         return val;
+    }
+    
+    public int CreateID(String file){
+        String val = GetLastLine(file);
+        String [] store;
+        int num = 1;
+        if(val.equals("0")){
+            return 1;
+        }
+        else{
+            store = val.split(",");
+            val = store[0];
+            val = val.substring(2);
+            num = Integer.parseInt(val);
+            num++;
+            return num;
+        }
     }
 }
