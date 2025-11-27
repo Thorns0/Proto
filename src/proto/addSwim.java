@@ -275,7 +275,9 @@ public class addSwim extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
             Functions Fun = new Functions();
-            int ID;
+            int IDnum;
+            String ID;
+            String IDnumStore;
             String Fname = txtFname.getText();
             String Lname = txtLname.getText();
             String Gname = txtGname.getText();
@@ -287,21 +289,13 @@ public class addSwim extends javax.swing.JFrame {
             String Add3 = txtAdd3.getText();
             String Post = txtPost.getText();
             String MedGiven = (String) ComMed.getSelectedItem();
-            Boolean Med = false;
-            Boolean InvalEmail = true;
             if(Fname.isBlank() || Lname.isBlank() || Gname.isBlank() || Email.isBlank() || Phone.isBlank() || ToJoin.isBlank() || Add1.isBlank() || Add2.isBlank() || Add3.isBlank() || Post.isBlank() || MedGiven.isBlank()){
                 JOptionPane.showMessageDialog(rootPane, "All fields must contain something");
-            }
-            else if(MedGiven == "Yes"){
-                Med = true;
             }
             else if(Phone.length()>11 || Phone.length()<11){
                 JOptionPane.showMessageDialog(rootPane, "phone number must be exactly 11 digits long");
             }
-            else if(Email.contains("@")){
-                InvalEmail = false;
-            }
-            else if(InvalEmail){
+            else if(! Email.contains("@")){
                 JOptionPane.showMessageDialog(rootPane, "Email must contain an @");
             }
             else if(Add1.contains(",") || Add2.contains(",") || Add3.contains(",")){
@@ -312,7 +306,25 @@ public class addSwim extends javax.swing.JFrame {
         try {
             fw = new FileWriter("Swimmers.txt", true);
             BufferedWriter bw = new BufferedWriter(fw);
-            ID = Fun.CreateID("Swimmers.txt");
+            IDnum = Fun.CreateID("Swimmers.txt");
+            IDnumStore = Integer.toString(IDnum);
+            ID = ToJoin+IDnumStore;
+            bw.write(ID+","+Fname+","+Lname+","+Gname+","+Email+","+Phone+","+Add1+","+Add2+","+Add3+","+Post+","+MedGiven);
+            bw.newLine();
+            bw.close();
+            fw.close();
+            JOptionPane.showMessageDialog(rootPane, "Swimmer details saved");
+            txtFname.setText("");
+            txtLname.setText("");
+            txtGname.setText("");
+            txtEmail.setText("");
+            txtPhone.setText("");
+            txtAdd1.setText("");
+            txtAdd2.setText("");
+            txtAdd3.setText("");
+            txtPost.setText("");
+            ComToJoin.setSelectedIndex(-1);
+            ComMed.setSelectedIndex(-1);
         } catch (IOException ex) {
             Logger.getLogger(addSwim.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
