@@ -299,8 +299,39 @@ public class SortSearch extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        String Group = "T1";
-        //Use a 2D array and loop through the file
+        FileReader fr = null;
+        try {
+            String Group = "T1";
+            String GroupID;
+            String [][] items = null;
+            String [] arryStore;
+            String Line;
+            fr = new FileReader("Swimmers.txt");
+            BufferedReader br = new BufferedReader(fr);
+            try {
+                while((Line = br.readLine())!=null){
+                    arryStore = Line.split(",");
+                    GroupID = arryStore[0].substring(0, 2);
+                    for(int i=0; i<arryStore.length; i++){
+                        if(GroupID.equals(Group)){
+                            for(int j=0; j<arryStore.length; j++){
+                                items[i][j] = arryStore[j];
+                            }
+                        }
+                    }
+                }
+            } catch (IOException ex) {
+                Logger.getLogger(SortSearch.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(SortSearch.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                fr.close();
+            } catch (IOException ex) {
+                Logger.getLogger(SortSearch.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
     }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
