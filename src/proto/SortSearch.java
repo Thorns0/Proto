@@ -306,19 +306,19 @@ public class SortSearch extends javax.swing.JFrame {
             String [][] items = null;
             String [] arryStore;
             String Line;
+            int i = 0;
             fr = new FileReader("Swimmers.txt");
             BufferedReader br = new BufferedReader(fr);
             try {
                 while((Line = br.readLine())!=null){
                     arryStore = Line.split(",");
                     GroupID = arryStore[0].substring(0, 2);
-                    for(int i=0; i<arryStore.length; i++){
                         if(GroupID.equals(Group)){
                             for(int j=0; j<arryStore.length; j++){
                                 items[i][j] = arryStore[j];
                             }
                         }
-                    }
+                    i++;
                 }
             } catch (IOException ex) {
                 Logger.getLogger(SortSearch.class.getName()).log(Level.SEVERE, null, ex);
