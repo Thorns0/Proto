@@ -301,7 +301,6 @@ public class SortSearch extends javax.swing.JFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         FileReader fr = null;
         try {
-            String Group = "T1";
             String GroupID;
             String [][] items = null;
             String [] arryStore;
@@ -313,12 +312,10 @@ public class SortSearch extends javax.swing.JFrame {
                 while((Line = br.readLine())!=null){
                     arryStore = Line.split(",");
                     GroupID = arryStore[0].substring(0, 2);
-                        if(GroupID.equals(Group)){
-                            for(int j=0; j<arryStore.length; j++){
-                                items[i][j] = arryStore[j];
-                            }
+                        if(GroupID.equals("T1")){
+                            items[i] = Line.split(",");
                         }
-                    i++;
+                        i++;
                 }
             } catch (IOException ex) {
                 Logger.getLogger(SortSearch.class.getName()).log(Level.SEVERE, null, ex);
