@@ -91,6 +91,11 @@ public class SortSearch extends javax.swing.JFrame {
 
         jButton3.setFont(new java.awt.Font("Courier New", 0, 12)); // NOI18N
         jButton3.setText("T1");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jButton4.setFont(new java.awt.Font("Courier New", 0, 12)); // NOI18N
         jButton4.setText("T2");
@@ -292,6 +297,11 @@ public class SortSearch extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(rootPane, "Swimmer not found");
         }
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        String Group = "T1";
+        //Use a 2D array and loop through the file
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
