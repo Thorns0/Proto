@@ -215,7 +215,7 @@ public class SortSearch extends javax.swing.JFrame {
         Boolean useID = true;
         Boolean found = false;
         String [] items = null;
-        int i = 0;
+        String toShow = "";
         if(fname.isBlank()||lname.isBlank()){
             useName = false;
         }
@@ -277,14 +277,20 @@ public class SortSearch extends javax.swing.JFrame {
                 }
             }
         }
-        //if(found){
-           // for(i; i<items.length(); i++){
-                
-            //}
-       // }
-        //else{
-            //JOptionPane.showMessageDialog(rootPane, "Swimmer not found");
-        //}
+        if(found){
+            if(items == null){
+                JOptionPane.showMessageDialog(rootPane, "Error, how?");
+            }
+            else{
+                for(int i=0; i<items.length; i++){
+                    toShow = toShow + items[i] + ", ";
+                }
+            }
+            JOptionPane.showMessageDialog(rootPane, toShow);
+        }
+        else{
+            JOptionPane.showMessageDialog(rootPane, "Swimmer not found");
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
