@@ -39,8 +39,13 @@ public class ViewRota extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
-        jLabel10 = new javax.swing.JLabel();
+        txtMon = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
+        txtTue = new javax.swing.JLabel();
+        txtThu = new javax.swing.JLabel();
+        txtFri = new javax.swing.JLabel();
+        txtSat = new javax.swing.JLabel();
+        txtSun = new javax.swing.JLabel();
 
         jLabel4.setFont(new java.awt.Font("Courier New", 0, 12)); // NOI18N
         jLabel4.setText("Monday");
@@ -89,8 +94,8 @@ public class ViewRota extends javax.swing.JFrame {
             }
         });
 
-        jLabel10.setFont(new java.awt.Font("Courier New", 0, 12)); // NOI18N
-        jLabel10.setText("Monday");
+        txtMon.setFont(new java.awt.Font("Courier New", 0, 12)); // NOI18N
+        txtMon.setText("Coaches");
 
         jButton2.setFont(new java.awt.Font("Courier New", 0, 12)); // NOI18N
         jButton2.setText("Search");
@@ -99,6 +104,21 @@ public class ViewRota extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
+
+        txtTue.setFont(new java.awt.Font("Courier New", 0, 12)); // NOI18N
+        txtTue.setText("Coaches");
+
+        txtThu.setFont(new java.awt.Font("Courier New", 0, 12)); // NOI18N
+        txtThu.setText("Coaches");
+
+        txtFri.setFont(new java.awt.Font("Courier New", 0, 12)); // NOI18N
+        txtFri.setText("Coaches");
+
+        txtSat.setFont(new java.awt.Font("Courier New", 0, 12)); // NOI18N
+        txtSat.setText("Coaches");
+
+        txtSun.setFont(new java.awt.Font("Courier New", 0, 12)); // NOI18N
+        txtSun.setText("Coaches");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -125,7 +145,12 @@ public class ViewRota extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel10)))
+                            .addComponent(txtMon)
+                            .addComponent(txtTue)
+                            .addComponent(txtThu)
+                            .addComponent(txtFri)
+                            .addComponent(txtSat)
+                            .addComponent(txtSun)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(70, 70, 70)
                         .addComponent(jButton2)))
@@ -145,17 +170,27 @@ public class ViewRota extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jLabel10))
+                    .addComponent(txtMon))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel5)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(txtTue))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel6)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(txtThu))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel7)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(txtFri))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel8)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8)
+                    .addComponent(txtSat))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel9)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel9)
+                    .addComponent(txtSun))
                 .addGap(18, 18, 18)
                 .addComponent(jButton2)
                 .addContainerGap(20, Short.MAX_VALUE))
@@ -229,7 +264,6 @@ public class ViewRota extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -240,5 +274,11 @@ public class ViewRota extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JLabel txtFri;
+    private javax.swing.JLabel txtMon;
+    private javax.swing.JLabel txtSat;
+    private javax.swing.JLabel txtSun;
+    private javax.swing.JLabel txtThu;
+    private javax.swing.JLabel txtTue;
     // End of variables declaration//GEN-END:variables
 }
