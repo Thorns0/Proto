@@ -302,7 +302,8 @@ public class SortSearch extends javax.swing.JFrame {
         FileReader fr = null;
         try {
             String GroupID;
-            String [][] items = null;
+            //Create a count occurances function that counts how many times something appears in the file, use the get last line as the basis
+            String [][] items = new String [1][11];
             String [] arryStore;
             String Line;
             int i = 0;
@@ -313,7 +314,9 @@ public class SortSearch extends javax.swing.JFrame {
                     arryStore = Line.split(",");
                     GroupID = arryStore[0].substring(0, 2);
                         if(GroupID.equals("T1")){
-                            items[i] = Line.split(",");
+                            for(int j=0; j<arryStore.length; j++){
+                            items[i][j] = arryStore[j];
+                            }
                         }
                         i++;
                 }
