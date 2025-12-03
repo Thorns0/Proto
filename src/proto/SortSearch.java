@@ -299,11 +299,11 @@ public class SortSearch extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        Functions fun = new Functions();
         FileReader fr = null;
         try {
             String GroupID;
-            //Create a count occurances function that counts how many times something appears in the file, use the get last line as the basis
-            String [][] items = new String [1][11];
+            String [][] items = new String [fun.countFile("Swimmers.txt", "T1")][11];
             String [] arryStore;
             String Line;
             int i = 0;
@@ -312,7 +312,8 @@ public class SortSearch extends javax.swing.JFrame {
             try {
                 while((Line = br.readLine())!=null){
                     arryStore = Line.split(",");
-                    GroupID = arryStore[0].substring(0, 2);
+                    GroupID = arryStore[0];
+                    GroupID = GroupID.substring(0, 2);
                         if(GroupID.equals("T1")){
                             for(int j=0; j<arryStore.length; j++){
                             items[i][j] = arryStore[j];
@@ -320,6 +321,7 @@ public class SortSearch extends javax.swing.JFrame {
                         }
                         i++;
                 }
+                fun.print2darry(items);
             } catch (IOException ex) {
                 Logger.getLogger(SortSearch.class.getName()).log(Level.SEVERE, null, ex);
             }

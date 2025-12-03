@@ -59,4 +59,48 @@ public class Functions {
             return num;
         }
     }
+    
+    public int countFile(String file, String find){
+        FileReader fr = null;
+            int num = -1;
+        try {
+            String Line;
+            String [] store;
+            String ID;
+            String Group;
+            fr = new FileReader(file);
+            BufferedReader br = new BufferedReader(fr);
+            try {
+                while((Line=br.readLine())!=null){
+                    store = Line.split(",");
+                    ID = store[0];
+                    Group = ID.substring(0, 2);
+                    if(Group.equals(find)){
+                        num++;
+                    }
+                }
+            } catch (IOException ex) {
+                Logger.getLogger(Functions.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Functions.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                fr.close();
+            } catch (IOException ex) {
+                Logger.getLogger(Functions.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        return num;
+    }
+    
+    public void print2darry(String[][]arr){
+        for(int i=0;i<arr.length;i++){
+            for(int y=0;y<arr[i].length;y++){
+                System.out.print(arr[i][y]);
+                System.out.print(",");
+            }
+            System.out.println();
+        }
+    }
 }
