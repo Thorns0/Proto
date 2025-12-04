@@ -321,7 +321,8 @@ public class SortSearch extends javax.swing.JFrame {
                             i++;
                         }
                 }
-                fun.print2darry(items);
+                DisGroup DG = new DisGroup(items);
+                DG.setVisible(true);
             } catch (IOException ex) {
                 Logger.getLogger(SortSearch.class.getName()).log(Level.SEVERE, null, ex);
             }
