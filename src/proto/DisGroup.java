@@ -13,8 +13,20 @@ public class DisGroup extends javax.swing.JFrame {
     /**
      * Creates new form DisGroup
      */
-    public DisGroup(String arry [][]) {
+    public DisGroup() {
         initComponents();
+    }
+    
+    public DisGroup(String arry[][]){
+        initComponents();
+        String content;
+        for(int i=0;i<arry.length;i++){
+            for(int y=0;y<arry[i].length;y++){
+                content = SwimmersDis.getText();
+                SwimmersDis.append(arry[i][y] + ", ");
+            }
+            
+        }
     }
 
 
@@ -29,26 +41,39 @@ public class DisGroup extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         Swimmers = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        SwimmersDis = new javax.swing.JTextArea();
 
         jPanel1.setBackground(new java.awt.Color(36, 255, 31));
 
-        Swimmers.setText("jLabel1");
+        Swimmers.setText("Swimmers in group are: ");
+
+        SwimmersDis.setColumns(20);
+        SwimmersDis.setFont(new java.awt.Font("Courier New", 0, 12)); // NOI18N
+        SwimmersDis.setRows(5);
+        jScrollPane1.setViewportView(SwimmersDis);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(86, 86, 86)
-                .addComponent(Swimmers)
-                .addContainerGap(356, Short.MAX_VALUE))
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 467, Short.MAX_VALUE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(Swimmers)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(57, 57, 57)
+                .addGap(40, 40, 40)
                 .addComponent(Swimmers)
-                .addContainerGap(274, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 279, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -102,6 +127,8 @@ public class DisGroup extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Swimmers;
+    private javax.swing.JTextArea SwimmersDis;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }
