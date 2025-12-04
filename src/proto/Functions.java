@@ -62,7 +62,7 @@ public class Functions {
     
     public int countFile(String file, String find){
         FileReader fr = null;
-            int num = -1;
+            int num = 0;
         try {
             String Line;
             String [] store;

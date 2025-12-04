@@ -318,8 +318,8 @@ public class SortSearch extends javax.swing.JFrame {
                             for(int j=0; j<arryStore.length; j++){
                             items[i][j] = arryStore[j];
                             }
+                            i++;
                         }
-                        i++;
                 }
                 fun.print2darry(items);
             } catch (IOException ex) {
