@@ -4,6 +4,13 @@
  */
 package proto;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author adg19f
@@ -15,8 +22,38 @@ public class ViewRota extends javax.swing.JFrame {
      */
     public ViewRota() {
         initComponents();
+        Functions fun = new Functions();
+        String [] arry = new String [fun.lineInFile("Rota.txt")];
+        String [] temp;
+        String Line;
+        int i =0;
+        FileReader fr = null;
+        try {
+            fr = new FileReader("Rota.txt");
+            BufferedReader br = new BufferedReader(fr);
+            try {
+                while((Line = br.readLine()) !=null){
+                    temp = Line.split(",");
+                    arry[i] = temp[0];
+                    i++;
+                }
+                for(int x=0; x<arry.length; x++){
+                    DoWS.addItem(arry[x]);
+                }
+            } catch (IOException ex) {
+                Logger.getLogger(ViewRota.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(ViewRota.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                fr.close();
+            } catch (IOException ex) {
+                Logger.getLogger(ViewRota.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -38,7 +75,7 @@ public class ViewRota extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        DoWS = new javax.swing.JComboBox<>();
         txtMon = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         txtTue = new javax.swing.JLabel();
@@ -88,9 +125,9 @@ public class ViewRota extends javax.swing.JFrame {
         jLabel9.setFont(new java.awt.Font("Courier New", 0, 12)); // NOI18N
         jLabel9.setText("Sunday");
 
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+        DoWS.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
+                DoWSActionPerformed(evt);
             }
         });
 
@@ -144,7 +181,7 @@ public class ViewRota extends javax.swing.JFrame {
                             .addComponent(jLabel2))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(DoWS, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtMon)
                             .addComponent(txtTue)
                             .addComponent(txtThu)
@@ -166,7 +203,7 @@ public class ViewRota extends javax.swing.JFrame {
                 .addGap(43, 43, 43)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(DoWS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
@@ -217,12 +254,44 @@ public class ViewRota extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+        FileReader fr = null;
+        try {
+            String Date = (String) DoWS.getSelectedItem();
+            String [] arr;
+            boolean found = true;
+            String Line;
+            fr = new FileReader("Rota.txt");
+            BufferedReader br = new BufferedReader(fr);
+            try {
+                while((Line = br.readLine())!=null && found){
+                    arr = Line.split(",");
+                    if(arr[0].equals(Date)){
+                        txtMon.setText(arr[1]);
+                        txtTue.setText(arr[2]);
+                        txtThu.setText(arr[3]);
+                        txtFri.setText(arr[4]);
+                        txtSat.setText(arr[5]);
+                        txtSun.setText(arr[6]);
+                        found = false;
+                    }
+                }
+            } catch (IOException ex) {
+                Logger.getLogger(ViewRota.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(ViewRota.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                fr.close();
+            } catch (IOException ex) {
+                Logger.getLogger(ViewRota.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+    private void DoWSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DoWSActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+    }//GEN-LAST:event_DoWSActionPerformed
 
     /**
      * @param args the command line arguments
@@ -260,9 +329,9 @@ public class ViewRota extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> DoWS;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

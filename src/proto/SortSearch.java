@@ -99,18 +99,43 @@ public class SortSearch extends javax.swing.JFrame {
 
         jButton4.setFont(new java.awt.Font("Courier New", 0, 12)); // NOI18N
         jButton4.setText("T2");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         jButton5.setFont(new java.awt.Font("Courier New", 0, 12)); // NOI18N
         jButton5.setText("T3");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
         jButton6.setFont(new java.awt.Font("Courier New", 0, 12)); // NOI18N
         jButton6.setText("P1");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
 
         jButton7.setFont(new java.awt.Font("Courier New", 0, 12)); // NOI18N
         jButton7.setText("P2");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
 
         jButton8.setFont(new java.awt.Font("Courier New", 0, 12)); // NOI18N
         jButton8.setText("P3");
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -323,6 +348,7 @@ public class SortSearch extends javax.swing.JFrame {
                 }
                 DisGroup DG = new DisGroup(items);
                 DG.setVisible(true);
+                this.setVisible(false);
             } catch (IOException ex) {
                 Logger.getLogger(SortSearch.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -336,6 +362,206 @@ public class SortSearch extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        Functions fun = new Functions();
+        FileReader fr = null;
+        try {
+            String GroupID;
+            String [][] items = new String [fun.countFile("Swimmers.txt", "T2")][11];
+            String [] arryStore;
+            String Line;
+            int i = 0;
+            fr = new FileReader("Swimmers.txt");
+            BufferedReader br = new BufferedReader(fr);
+            try {
+                while((Line = br.readLine())!=null){
+                    arryStore = Line.split(",");
+                    GroupID = arryStore[0];
+                    GroupID = GroupID.substring(0, 2);
+                        if(GroupID.equals("T2")){
+                            for(int j=0; j<arryStore.length; j++){
+                            items[i][j] = arryStore[j];
+                            }
+                            i++;
+                        }
+                }
+                DisGroup DG = new DisGroup(items);
+                DG.setVisible(true);
+                this.setVisible(false);
+            } catch (IOException ex) {
+                Logger.getLogger(SortSearch.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(SortSearch.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                fr.close();
+            } catch (IOException ex) {
+                Logger.getLogger(SortSearch.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        Functions fun = new Functions();
+        FileReader fr = null;
+        try {
+            String GroupID;
+            String [][] items = new String [fun.countFile("Swimmers.txt", "T3")][11];
+            String [] arryStore;
+            String Line;
+            int i = 0;
+            fr = new FileReader("Swimmers.txt");
+            BufferedReader br = new BufferedReader(fr);
+            try {
+                while((Line = br.readLine())!=null){
+                    arryStore = Line.split(",");
+                    GroupID = arryStore[0];
+                    GroupID = GroupID.substring(0, 2);
+                        if(GroupID.equals("T3")){
+                            for(int j=0; j<arryStore.length; j++){
+                            items[i][j] = arryStore[j];
+                            }
+                            i++;
+                        }
+                }
+                DisGroup DG = new DisGroup(items);
+                DG.setVisible(true);
+                this.setVisible(false);
+            } catch (IOException ex) {
+                Logger.getLogger(SortSearch.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(SortSearch.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                fr.close();
+            } catch (IOException ex) {
+                Logger.getLogger(SortSearch.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        Functions fun = new Functions();
+        FileReader fr = null;
+        try {
+            String GroupID;
+            String [][] items = new String [fun.countFile("Swimmers.txt", "P1")][11];
+            String [] arryStore;
+            String Line;
+            int i = 0;
+            fr = new FileReader("Swimmers.txt");
+            BufferedReader br = new BufferedReader(fr);
+            try {
+                while((Line = br.readLine())!=null){
+                    arryStore = Line.split(",");
+                    GroupID = arryStore[0];
+                    GroupID = GroupID.substring(0, 2);
+                        if(GroupID.equals("P1")){
+                            for(int j=0; j<arryStore.length; j++){
+                            items[i][j] = arryStore[j];
+                            }
+                            i++;
+                        }
+                }
+                DisGroup DG = new DisGroup(items);
+                DG.setVisible(true);
+                this.setVisible(false);
+            } catch (IOException ex) {
+                Logger.getLogger(SortSearch.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(SortSearch.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                fr.close();
+            } catch (IOException ex) {
+                Logger.getLogger(SortSearch.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        Functions fun = new Functions();
+        FileReader fr = null;
+        try {
+            String GroupID;
+            String [][] items = new String [fun.countFile("Swimmers.txt", "P2")][11];
+            String [] arryStore;
+            String Line;
+            int i = 0;
+            fr = new FileReader("Swimmers.txt");
+            BufferedReader br = new BufferedReader(fr);
+            try {
+                while((Line = br.readLine())!=null){
+                    arryStore = Line.split(",");
+                    GroupID = arryStore[0];
+                    GroupID = GroupID.substring(0, 2);
+                        if(GroupID.equals("P2")){
+                            for(int j=0; j<arryStore.length; j++){
+                            items[i][j] = arryStore[j];
+                            }
+                            i++;
+                        }
+                }
+                DisGroup DG = new DisGroup(items);
+                DG.setVisible(true);
+                this.setVisible(false);
+            } catch (IOException ex) {
+                Logger.getLogger(SortSearch.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(SortSearch.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                fr.close();
+            } catch (IOException ex) {
+                Logger.getLogger(SortSearch.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        Functions fun = new Functions();
+        FileReader fr = null;
+        try {
+            String GroupID;
+            String [][] items = new String [fun.countFile("Swimmers.txt", "P3")][11];
+            String [] arryStore;
+            String Line;
+            int i = 0;
+            fr = new FileReader("Swimmers.txt");
+            BufferedReader br = new BufferedReader(fr);
+            try {
+                while((Line = br.readLine())!=null){
+                    arryStore = Line.split(",");
+                    GroupID = arryStore[0];
+                    GroupID = GroupID.substring(0, 2);
+                        if(GroupID.equals("P3")){
+                            for(int j=0; j<arryStore.length; j++){
+                            items[i][j] = arryStore[j];
+                            }
+                            i++;
+                        }
+                }
+                DisGroup DG = new DisGroup(items);
+                DG.setVisible(true);
+                this.setVisible(false);
+            } catch (IOException ex) {
+                Logger.getLogger(SortSearch.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(SortSearch.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                fr.close();
+            } catch (IOException ex) {
+                Logger.getLogger(SortSearch.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_jButton8ActionPerformed
 
     /**
      * @param args the command line arguments
