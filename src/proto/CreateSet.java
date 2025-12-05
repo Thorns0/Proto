@@ -10,6 +10,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -282,6 +283,22 @@ public class CreateSet extends javax.swing.JFrame {
         String dis = txtDis.getText();
         String drill = (String) DrillBox.getSelectedItem();
         String stroke = (String) StrokeDrop.getSelectedItem();
+        String time = txtTime.getText();
+        String [] arr;
+        String toSet;
+        String content;
+        if(dis.isBlank()||drill.isBlank()||stroke.isBlank()||time.isBlank()){
+            JOptionPane.showMessageDialog(rootPane, "All fields must be filled in");
+        }
+        else{
+            toSet = dis +" " + drill + " " + stroke + " " + time;
+            content = txtSet.getText();
+            txtSet.setText(content + toSet + "\n");
+            txtDis.setText("");
+            DrillBox.setSelectedIndex(0);
+            StrokeDrop.setSelectedIndex(0);
+            txtTime.setText("");
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
