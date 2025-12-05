@@ -60,7 +60,7 @@ public class MainSet extends javax.swing.JFrame {
         });
 
         jButton4.setFont(new java.awt.Font("Courier New", 0, 12)); // NOI18N
-        jButton4.setText("Add Set");
+        jButton4.setText("Create Set");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
@@ -90,7 +90,7 @@ public class MainSet extends javax.swing.JFrame {
                 .addComponent(jButton3)
                 .addGap(27, 27, 27)
                 .addComponent(jButton4)
-                .addGap(0, 53, Short.MAX_VALUE))
+                .addGap(0, 37, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton5)
