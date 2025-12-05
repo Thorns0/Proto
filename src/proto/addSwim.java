@@ -293,7 +293,7 @@ public class addSwim extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(rootPane, "All fields must contain something");
             }
             else if(Phone.length()>11 || Phone.length()<11){
-                JOptionPane.showMessageDialog(rootPane, "phone number must be exactly 11 digits long");
+                JOptionPane.showMessageDialog(rootPane, "Phone number must be exactly 11 digits long");
             }
             else if(! Email.contains("@")){
                 JOptionPane.showMessageDialog(rootPane, "Email must contain an @");
