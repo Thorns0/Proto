@@ -10,6 +10,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -125,6 +126,7 @@ public class ViewRota extends javax.swing.JFrame {
         jLabel9.setFont(new java.awt.Font("Courier New", 0, 12)); // NOI18N
         jLabel9.setText("Sunday");
 
+        DoWS.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " " }));
         DoWS.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 DoWSActionPerformed(evt);
@@ -254,9 +256,13 @@ public class ViewRota extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        String Date = (String) DoWS.getSelectedItem();
+        if(Date.isBlank()){
+            JOptionPane.showMessageDialog(rootPane, "Select a date to view rota");
+        }
+        else{
         FileReader fr = null;
         try {
-            String Date = (String) DoWS.getSelectedItem();
             String [] arr;
             boolean found = true;
             String Line;
@@ -287,6 +293,7 @@ public class ViewRota extends javax.swing.JFrame {
                 Logger.getLogger(ViewRota.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
+      }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void DoWSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DoWSActionPerformed
