@@ -5,8 +5,10 @@
 package proto;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -131,6 +133,7 @@ public class CreateSet extends javax.swing.JFrame {
 
         txtSet.setColumns(20);
         txtSet.setRows(5);
+        txtSet.setText("Set:");
         jScrollPane1.setViewportView(txtSet);
 
         jLabel6.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
@@ -288,7 +291,7 @@ public class CreateSet extends javax.swing.JFrame {
         else{
             toSet = dis +" " + drill + " " + stroke + " " + time;
             content = txtSet.getText();
-            txtSet.setText(content + toSet + "\n");
+            txtSet.setText(content + "\n" + toSet);
             txtDis.setText("");
             DrillBox.setSelectedIndex(0);
             StrokeDrop.setSelectedIndex(0);
@@ -302,8 +305,37 @@ public class CreateSet extends javax.swing.JFrame {
         String date1 = (String) Date1.getSelectedItem();
         String date2 = (String) Date2.getSelectedItem();
         String date3 = (String) Date3.getSelectedItem();
+        String [] arry;
         if(date1.isBlank()||date2.isBlank()||date3.isBlank()||set.isBlank()){
             JOptionPane.showMessageDialog(rootPane, "The set and date must contain something");
+        }
+        else{
+            FileWriter fw = null;
+            try {
+                fw = new FileWriter("Sets.txt",true);
+                BufferedWriter bw = new BufferedWriter(fw);
+                arry = set.split("\n");
+                bw.append(date + ",");
+                for(int i=0; i<arry.length;i++){
+                bw.append(arry[i] + ",");
+            }
+                bw.newLine();
+                bw.close();
+                fw.close();
+                JOptionPane.showMessageDialog(rootPane, "Set saved");
+                txtSet.setText("Set:");
+                Date1.setSelectedIndex(0);
+                Date2.setSelectedIndex(0);
+                Date3.setSelectedIndex(0);
+            } catch (IOException ex) {
+                Logger.getLogger(CreateSet.class.getName()).log(Level.SEVERE, null, ex);
+            } finally {
+                try {
+                    fw.close();
+                } catch (IOException ex) {
+                    Logger.getLogger(CreateSet.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
         }
     }//GEN-LAST:event_jButton3ActionPerformed
 

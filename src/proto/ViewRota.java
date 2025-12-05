@@ -27,7 +27,7 @@ public class ViewRota extends javax.swing.JFrame {
         String [] arry = new String [fun.lineInFile("Rota.txt")];
         String [] temp;
         String Line;
-        int i =0;
+        int i = 0;
         FileReader fr = null;
         try {
             fr = new FileReader("Rota.txt");
@@ -126,7 +126,7 @@ public class ViewRota extends javax.swing.JFrame {
         jLabel9.setFont(new java.awt.Font("Courier New", 0, 12)); // NOI18N
         jLabel9.setText("Sunday");
 
-        DoWS.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " " }));
+        DoWS.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "" }));
         DoWS.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 DoWSActionPerformed(evt);
