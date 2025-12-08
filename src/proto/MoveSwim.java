@@ -217,12 +217,19 @@ public class MoveSwim extends javax.swing.JFrame {
                 BufferedWriter buf = new BufferedWriter(fileWrite);
                 for(int x=0; x<arr.length ; x++){
                     for(int y=0; y<arr[x].length; y++){
-                        buf.append(arr[x][y]+",");
+                        if(arr[x][y].equals(arr[x][0])){
+                            buf.append(arr[x][y]);
+                        }
+                        else{
+                            buf.append("," + arr[x][y]);
+                        }
                     }
                     buf.newLine();
                 }
                 buf.close();
                 fileWrite.close();
+                JOptionPane.showMessageDialog(rootPane, "Swimmer removed from file");
+                txtID.setText("");
             } catch (IOException ex) {
                 Logger.getLogger(MoveSwim.class.getName()).log(Level.SEVERE, null, ex);
             } finally {
