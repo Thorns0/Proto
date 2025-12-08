@@ -56,7 +56,6 @@ public class DisSet extends javax.swing.JFrame {
 
         txtSet.setColumns(20);
         txtSet.setRows(5);
-        txtSet.setText("Set:");
         jScrollPane1.setViewportView(txtSet);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
