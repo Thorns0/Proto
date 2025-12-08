@@ -312,11 +312,10 @@ public class SortSearch extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(rootPane, "Error, how?");
             }
             else{
-                for(int i=0; i<items.length; i++){
-                    toShow = toShow + items[i] + ", ";
-                }
+                DisSwim DS = new DisSwim(items);
+                DS.setVisible(true);
+                this.setVisible(false);
             }
-            JOptionPane.showMessageDialog(rootPane, toShow);
         }
         else{
             JOptionPane.showMessageDialog(rootPane, "Swimmer not found");
