@@ -42,7 +42,7 @@ public class MoveSwim extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         txtID = new javax.swing.JTextField();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        toMove = new javax.swing.JComboBox<>();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
 
@@ -69,11 +69,16 @@ public class MoveSwim extends javax.swing.JFrame {
 
         txtID.setFont(new java.awt.Font("Courier New", 0, 12)); // NOI18N
 
-        jComboBox1.setFont(new java.awt.Font("Courier New", 0, 12)); // NOI18N
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " ", "T1", "T2", "T3", "P1", "P2", "P3" }));
+        toMove.setFont(new java.awt.Font("Courier New", 0, 12)); // NOI18N
+        toMove.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " ", "T1", "T2", "T3", "P1", "P2", "P3" }));
 
         jButton2.setFont(new java.awt.Font("Courier New", 0, 12)); // NOI18N
         jButton2.setText("Move");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setFont(new java.awt.Font("Courier New", 0, 12)); // NOI18N
         jButton3.setText("Delete");
@@ -105,7 +110,7 @@ public class MoveSwim extends javax.swing.JFrame {
                         .addGap(25, 25, 25)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txtID)
-                            .addComponent(jComboBox1, 0, 84, Short.MAX_VALUE))
+                            .addComponent(toMove, 0, 84, Short.MAX_VALUE))
                         .addGap(0, 45, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -129,7 +134,7 @@ public class MoveSwim extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(toMove, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(39, 39, 39)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton2)
@@ -249,6 +254,105 @@ public class MoveSwim extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        Functions fun = new Functions();
+        String ID = txtID.getText();
+        String group = (String) toMove.getSelectedItem();
+        String [][] arr = new String [fun.lineInFile("Swimmers.txt")-1][11];
+        String [] move = new String [11];
+        String [] temp;
+        String Line;
+        int i = 0;
+        String newID = group+fun.CreateID("Swimmers.txt");
+        boolean notInFile = true;
+        FileReader fr = null;
+        try {
+            fr = new FileReader("Swimmers.txt");
+            BufferedReader br = new BufferedReader(fr);
+            if(ID.isBlank() || group.isBlank()){
+                JOptionPane.showMessageDialog(rootPane, "Input swimmerID and the group to move them to");
+            }
+            else{
+                try {
+                    while((Line = br.readLine())!=null){
+                        temp = Line.split(",");
+                        if(temp[0].equals(ID)){
+                            move = Line.split(",");
+                            notInFile = false;
+                        }
+                        else{
+                            arr[i] = Line.split(",");
+                            i++;
+                        }
+                    }
+                } catch (IOException ex) {
+                    Logger.getLogger(MoveSwim.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(MoveSwim.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                fr.close();
+            } catch (IOException ex) {
+                Logger.getLogger(MoveSwim.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
+        if(notInFile){
+            JOptionPane.showMessageDialog(rootPane, "Swimmer can't be found");
+        }
+        else{
+            FileWriter fw = null;
+            try {
+                FileWriter fileWrite = null;
+                try {
+                    fileWrite = new FileWriter("Swimmers.txt",false);
+                    BufferedWriter Buf = new BufferedWriter(fileWrite);
+                    Buf.write("");
+                    Buf.close();
+                    fileWrite.close();
+                } catch (IOException ex) {
+                    Logger.getLogger(MoveSwim.class.getName()).log(Level.SEVERE, null, ex);
+                } finally {
+                    try {
+                        fileWrite.close();
+                    } catch (IOException ex) {
+                        Logger.getLogger(MoveSwim.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
+                fw = new FileWriter("Swimmers.txt",true);
+                BufferedWriter bw = new BufferedWriter(fw);
+                for(int x=0; x<arr.length; x++){
+                    for(int y=0; y<arr[x].length; y++){
+                        if(arr[x][y].equals(arr[x][0])){
+                            bw.append(arr[x][y]);
+                        }
+                        else{
+                            bw.append("," + arr[x][y]);
+                        }
+                    }
+                    bw.newLine();
+                }
+                bw.append(newID);
+                for(int z=0; z<move.length; z++){
+                    bw.append("," + move[z]);
+                }
+                bw.newLine();
+                bw.close();
+                fw.close();
+            } catch (IOException ex) {
+                Logger.getLogger(MoveSwim.class.getName()).log(Level.SEVERE, null, ex);
+            } finally {
+                try {
+                    fw.close();
+                } catch (IOException ex) {
+                    Logger.getLogger(MoveSwim.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -288,11 +392,11 @@ public class MoveSwim extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JComboBox<String> toMove;
     private javax.swing.JTextField txtID;
     // End of variables declaration//GEN-END:variables
 }
