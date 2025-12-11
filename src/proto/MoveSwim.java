@@ -160,6 +160,7 @@ public class MoveSwim extends javax.swing.JFrame {
         Functions fun = new Functions();
         String ID = txtID.getText();
         String Line;
+        //setting the lenght of the array to be the number of lines in the file -1 as one won't be saved
         String [][] arr = new String [fun.lineInFile("Swimmers.txt")-1][11];
         String [] toGo;
         int i = 0;
@@ -173,11 +174,13 @@ public class MoveSwim extends javax.swing.JFrame {
             fr = new FileReader("Swimmers.txt");
             BufferedReader br = new BufferedReader(fr);
             try {
+                //looping through the file to see if each line is the line to delete, if it is say that that line is in the file
                 while((Line = br.readLine())!=null){
                     toGo = Line.split(",");
                     if(toGo[0].equals(ID)){
                         notInFile = false;
                     }
+                    //if its not then add it to the 2d array to be re-written in the file
                     else{
                         arr[i] = Line.split(",");
                         i++;
@@ -195,7 +198,7 @@ public class MoveSwim extends javax.swing.JFrame {
                 Logger.getLogger(MoveSwim.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-        
+        //if the swimmer you want to delete isn't in the file then don't re-write the file
         if(notInFile){
             JOptionPane.showMessageDialog(rootPane, "Swimmer not in file");
         }
@@ -204,6 +207,7 @@ public class MoveSwim extends javax.swing.JFrame {
             try {
                 FileWriter fw = null;
                 try {
+                    //write to the file without appending it to clear the file
                     fw = new FileWriter("Swimmers.txt", false);
                     BufferedWriter bw = new BufferedWriter(fw);
                     bw.write("");
@@ -218,6 +222,7 @@ public class MoveSwim extends javax.swing.JFrame {
                         Logger.getLogger(MoveSwim.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 }
+                //loop through the 2d array to re-write to the file the swimmers that weren't deleted
                 fileWrite = new FileWriter("Swimmers.txt", true);
                 BufferedWriter buf = new BufferedWriter(fileWrite);
                 for(int x=0; x<arr.length ; x++){
@@ -255,6 +260,7 @@ public class MoveSwim extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        //this is the same as deleteing but the swimmer to be moved is saved to their own array and that array is written to the end of the file once the 2d arry is written
         Functions fun = new Functions();
         String ID = txtID.getText();
         String group = (String) toMove.getSelectedItem();
@@ -263,6 +269,7 @@ public class MoveSwim extends javax.swing.JFrame {
         String [] temp;
         String Line;
         int i = 0;
+        //creating a new ID number for the swimmer being moved
         String newID = group+fun.CreateID("Swimmers.txt");
         boolean notInFile = true;
         FileReader fr = null;
