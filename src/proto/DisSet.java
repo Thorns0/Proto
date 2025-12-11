@@ -19,10 +19,17 @@ public class DisSet extends javax.swing.JFrame {
     
     public DisSet(String [] arr){
         initComponents();
-        int i = 2;
+        //looping through the array containing the set to append it ot the text area
+        int i = 0;
         String content;
         while(i<arr.length){
-            txtSet.append(arr[i]);
+            //if i==0 then the item being displayed is the date so add the : to make it look nicer, other wise just add the item
+            if(i==0){
+                txtSet.append(arr[i] + ":");
+            }
+            else{
+                txtSet.append(arr[i]);
+            }
             content = txtSet.getText();
             txtSet.setText(content + "\n");
             i++;
@@ -47,6 +54,7 @@ public class DisSet extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(179, 22, 235));
 
+        jButton1.setFont(new java.awt.Font("Courier New", 0, 12)); // NOI18N
         jButton1.setText("Back");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -55,6 +63,7 @@ public class DisSet extends javax.swing.JFrame {
         });
 
         txtSet.setColumns(20);
+        txtSet.setFont(new java.awt.Font("Courier New", 0, 12)); // NOI18N
         txtSet.setRows(5);
         jScrollPane1.setViewportView(txtSet);
 
@@ -78,7 +87,7 @@ public class DisSet extends javax.swing.JFrame {
                 .addComponent(jButton1)
                 .addGap(46, 46, 46)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(46, Short.MAX_VALUE))
+                .addContainerGap(48, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

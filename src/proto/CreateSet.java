@@ -24,6 +24,7 @@ public class CreateSet extends javax.swing.JFrame {
      * Creates new form CreateSet
      */
     public CreateSet() {
+        //Putting the contents of a file into a combo box
         initComponents();
         Functions fun = new Functions();
         String [] arr = new String [fun.lineInFile("Drills.txt")];
@@ -34,10 +35,12 @@ public class CreateSet extends javax.swing.JFrame {
             fr = new FileReader("Drills.txt");
             BufferedReader br = new BufferedReader(fr);
             try {
+                //looping through the file and saving the contents to an array
                 while((Line = br.readLine())!=null){
                     arr[i] = Line;
                     i++;
                 }
+                //looping through the array and adding each item to the combo box
                 for(int x=0; x<arr.length; x++){
                     DrillBox.addItem(arr[x]);
                 }
@@ -132,6 +135,7 @@ public class CreateSet extends javax.swing.JFrame {
         });
 
         txtSet.setColumns(20);
+        txtSet.setFont(new java.awt.Font("Courier New", 0, 12)); // NOI18N
         txtSet.setRows(5);
         txtSet.setText("Set:");
         jScrollPane1.setViewportView(txtSet);
@@ -289,6 +293,7 @@ public class CreateSet extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(rootPane, "All fields must be filled in");
         }
         else{
+            //adding the drill to the set
             toSet = dis +" " + drill + " " + stroke + " " + time;
             content = txtSet.getText();
             txtSet.setText(content + "\n" + toSet);
@@ -306,7 +311,7 @@ public class CreateSet extends javax.swing.JFrame {
         String date2 = (String) Date2.getSelectedItem();
         String date3 = (String) Date3.getSelectedItem();
         String [] arry;
-        if(date1.isBlank()||date2.isBlank()||date3.isBlank()||set.isBlank()){
+        if(date1.isBlank()||date2.isBlank()||date3.isBlank()||set.isBlank()||set.equals("Set:")){
             JOptionPane.showMessageDialog(rootPane, "The set and date must contain something");
         }
         else{
@@ -314,9 +319,11 @@ public class CreateSet extends javax.swing.JFrame {
             try {
                 fw = new FileWriter("Sets.txt",true);
                 BufferedWriter bw = new BufferedWriter(fw);
+                //saving set to an array with each line being one item
                 arry = set.split("\n");
                 bw.append(date + ",");
-                for(int i=0; i<arry.length;i++){
+                //looping through the array and saving it to the file, skipping the first item as that is the Set: which isn't needed
+                for(int i=1; i<arry.length;i++){
                 bw.append(arry[i] + ",");
             }
                 bw.newLine();

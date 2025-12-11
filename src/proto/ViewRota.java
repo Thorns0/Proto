@@ -126,6 +126,7 @@ public class ViewRota extends javax.swing.JFrame {
         jLabel9.setFont(new java.awt.Font("Courier New", 0, 12)); // NOI18N
         jLabel9.setText("Sunday");
 
+        DoWS.setFont(new java.awt.Font("Courier New", 0, 12)); // NOI18N
         DoWS.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "" }));
         DoWS.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -232,7 +233,7 @@ public class ViewRota extends javax.swing.JFrame {
                     .addComponent(txtSun))
                 .addGap(18, 18, 18)
                 .addComponent(jButton2)
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

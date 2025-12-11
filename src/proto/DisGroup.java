@@ -18,13 +18,16 @@ public class DisGroup extends javax.swing.JFrame {
     }
     
     public DisGroup(String arry[][]){
+        //already been given 2d array (TABLES) use initComponets to be able to do anything
         initComponents();
         String content;
+        //first for loop loops through each array, second loops through each item in each array
         for(int i=0;i<arry.length;i++){
             for(int y=0;y<arry[i].length;y++){
-                content = SwimmersDis.getText();
+                //adding each item from 1d of the array
                 SwimmersDis.append(arry[i][y] + ", ");
             }
+            //adding new lines between each array
             content = SwimmersDis.getText();
             SwimmersDis.setText(content + "\n");
         }
