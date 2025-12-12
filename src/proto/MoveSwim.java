@@ -342,7 +342,7 @@ public class MoveSwim extends javax.swing.JFrame {
                     bw.newLine();
                 }
                 bw.append(newID);
-                for(int z=0; z<move.length; z++){
+                for(int z=1; z<move.length; z++){
                     bw.append("," + move[z]);
                 }
                 bw.newLine();

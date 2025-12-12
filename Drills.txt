@@ -4,3 +4,4 @@ Cobra
 - Split
 2L 2R 2Full
 S/K/P/S
+Pull
