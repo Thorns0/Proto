@@ -348,6 +348,7 @@ public class MoveSwim extends javax.swing.JFrame {
                 bw.newLine();
                 bw.close();
                 fw.close();
+                JOptionPane.showMessageDialog(rootPane, "Swimmer moved");
             } catch (IOException ex) {
                 Logger.getLogger(MoveSwim.class.getName()).log(Level.SEVERE, null, ex);
             } finally {
