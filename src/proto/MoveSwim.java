@@ -161,7 +161,7 @@ public class MoveSwim extends javax.swing.JFrame {
         String ID = txtID.getText();
         String Line;
         //setting the lenght of the array to be the number of lines in the file -1 as one won't be saved
-        String [][] arr = new String [fun.lineInFile("Swimmers.txt")-1][11];
+        String [][] arr = new String [fun.lineInFile("Swimmers.txt")][11];
         String [] toGo;
         int i = 0;
         Boolean notInFile = true;
@@ -183,6 +183,7 @@ public class MoveSwim extends javax.swing.JFrame {
                     //if its not then add it to the 2d array to be re-written in the file
                     else{
                         arr[i] = Line.split(",");
+                        arr[i+1] = Line.split(",");
                         i++;
                     }
                 }
@@ -225,7 +226,7 @@ public class MoveSwim extends javax.swing.JFrame {
                 //loop through the 2d array to re-write to the file the swimmers that weren't deleted
                 fileWrite = new FileWriter("Swimmers.txt", true);
                 BufferedWriter buf = new BufferedWriter(fileWrite);
-                for(int x=0; x<arr.length ; x++){
+                for(int x=0; x<arr.length-1; x++){
                     for(int y=0; y<arr[x].length; y++){
                         if(arr[x][y].equals(arr[x][0])){
                             buf.append(arr[x][y]);
