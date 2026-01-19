@@ -183,7 +183,6 @@ public class MoveSwim extends javax.swing.JFrame {
                     //if its not then add it to the 2d array to be re-written in the file
                     else{
                         arr[i] = Line.split(",");
-                        arr[i+1] = Line.split(",");
                         i++;
                     }
                 }
@@ -265,7 +264,7 @@ public class MoveSwim extends javax.swing.JFrame {
         Functions fun = new Functions();
         String ID = txtID.getText();
         String group = (String) toMove.getSelectedItem();
-        String [][] arr = new String [fun.lineInFile("Swimmers.txt")-1][11];
+        String [][] arr = new String [fun.lineInFile("Swimmers.txt")][11];
         String [] move = new String [11];
         String [] temp;
         String Line;
@@ -331,7 +330,7 @@ public class MoveSwim extends javax.swing.JFrame {
                 }
                 fw = new FileWriter("Swimmers.txt",true);
                 BufferedWriter bw = new BufferedWriter(fw);
-                for(int x=0; x<arr.length; x++){
+                for(int x=0; x<arr.length-1; x++){
                     for(int y=0; y<arr[x].length; y++){
                         if(arr[x][y].equals(arr[x][0])){
                             bw.append(arr[x][y]);
