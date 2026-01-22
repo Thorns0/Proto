@@ -14,7 +14,7 @@ public class Proto {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        MainMenu f1 = new MainMenu();
+        Login f1 = new Login();
         f1.setVisible(true);
     }
     
