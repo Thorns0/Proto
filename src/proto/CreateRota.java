@@ -372,10 +372,7 @@ public class CreateRota extends javax.swing.JFrame {
     }//GEN-LAST:event_ComWeekActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        String DWS = ComWeek.getSelectedItem() + "/" + comWeek2.getSelectedItem() + "/" + comWeek3.getSelectedItem();
         String week1 = (String) ComWeek.getSelectedItem();
-        String week2 = (String) comWeek2.getSelectedItem();
-        String week3 = (String) comWeek3.getSelectedItem();
         String Mon = txtMonday.getText();
         String Tue = txtTuesday.getText();
         String Thu = txtThursday.getText();
@@ -383,7 +380,7 @@ public class CreateRota extends javax.swing.JFrame {
         String Sat = txtSaturday.getText();
         String Sun = txtSunday.getText();
         
-        if(week1.isBlank()||week2.isBlank()||week3.isBlank()||Mon.isBlank()||Tue.isBlank()||Thu.isBlank()||Fri.isBlank()||Sat.isBlank()||Sun.isBlank()){
+        if(week1.isBlank()||Mon.isBlank()||Tue.isBlank()||Thu.isBlank()||Fri.isBlank()||Sat.isBlank()||Sun.isBlank()){
             JOptionPane.showMessageDialog(rootPane, "All fields must be filled in");
         }
         else if(Mon.contains(",")||Tue.contains(",")||Thu.contains(",")||Fri.contains(",")||Sun.contains(",")||Sat.contains(",")){
@@ -394,14 +391,12 @@ public class CreateRota extends javax.swing.JFrame {
             try {
                 fw = new FileWriter("Rota.txt", true);
                 BufferedWriter bw = new BufferedWriter(fw);
-                bw.write(DWS+","+Mon+","+Tue+","+Thu+","+Fri+","+Sat+","+Sun);
+                bw.write(Mon+","+Tue+","+Thu+","+Fri+","+Sat+","+Sun);
                 bw.newLine();
                 bw.close();
                 fw.close();
                 JOptionPane.showMessageDialog(rootPane, "Rota saved to file");
                 ComWeek.setSelectedIndex(-1);
-                comWeek2.setSelectedIndex(-1);
-                comWeek3.setSelectedIndex(-1);
                 txtMonday.setText("");
                 txtTuesday.setText("");
                 txtThursday.setText("");
