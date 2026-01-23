@@ -64,12 +64,12 @@ public class AddCoach extends javax.swing.JFrame {
         txtPost = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
         txtQual = new javax.swing.JTextArea();
-        ComCM1 = new javax.swing.JComboBox<>();
-        ComCM2 = new javax.swing.JComboBox<>();
-        ComCM3 = new javax.swing.JComboBox<>();
-        ComCM4 = new javax.swing.JComboBox<>();
-        ComCM5 = new javax.swing.JComboBox<>();
-        ComCM6 = new javax.swing.JComboBox<>();
+        AvaMon = new javax.swing.JComboBox<>();
+        AvaTue = new javax.swing.JComboBox<>();
+        AvaThu = new javax.swing.JComboBox<>();
+        AvaFri = new javax.swing.JComboBox<>();
+        AvaSat = new javax.swing.JComboBox<>();
+        AvaSun = new javax.swing.JComboBox<>();
         jButton2 = new javax.swing.JButton();
 
         jTextArea1.setColumns(20);
@@ -174,26 +174,27 @@ public class AddCoach extends javax.swing.JFrame {
         txtPost.setFont(new java.awt.Font("Courier New", 0, 12)); // NOI18N
 
         txtQual.setColumns(20);
+        txtQual.setFont(new java.awt.Font("Courier New", 0, 12)); // NOI18N
         txtQual.setRows(5);
         jScrollPane2.setViewportView(txtQual);
 
-        ComCM1.setFont(new java.awt.Font("Courier New", 0, 12)); // NOI18N
-        ComCM1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " ", "Yes", "No" }));
+        AvaMon.setFont(new java.awt.Font("Courier New", 0, 12)); // NOI18N
+        AvaMon.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " ", "Yes", "No" }));
 
-        ComCM2.setFont(new java.awt.Font("Courier New", 0, 12)); // NOI18N
-        ComCM2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " ", "Yes", "No" }));
+        AvaTue.setFont(new java.awt.Font("Courier New", 0, 12)); // NOI18N
+        AvaTue.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " ", "Yes", "No" }));
 
-        ComCM3.setFont(new java.awt.Font("Courier New", 0, 12)); // NOI18N
-        ComCM3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " ", "Yes", "No" }));
+        AvaThu.setFont(new java.awt.Font("Courier New", 0, 12)); // NOI18N
+        AvaThu.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " ", "Yes", "No" }));
 
-        ComCM4.setFont(new java.awt.Font("Courier New", 0, 12)); // NOI18N
-        ComCM4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " ", "Yes", "No" }));
+        AvaFri.setFont(new java.awt.Font("Courier New", 0, 12)); // NOI18N
+        AvaFri.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " ", "Yes", "No" }));
 
-        ComCM5.setFont(new java.awt.Font("Courier New", 0, 12)); // NOI18N
-        ComCM5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " ", "Yes", "No" }));
+        AvaSat.setFont(new java.awt.Font("Courier New", 0, 12)); // NOI18N
+        AvaSat.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " ", "Yes", "No" }));
 
-        ComCM6.setFont(new java.awt.Font("Courier New", 0, 12)); // NOI18N
-        ComCM6.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " ", "Yes", "No" }));
+        AvaSun.setFont(new java.awt.Font("Courier New", 0, 12)); // NOI18N
+        AvaSun.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " ", "Yes", "No" }));
 
         jButton2.setFont(new java.awt.Font("Courier New", 0, 12)); // NOI18N
         jButton2.setText("Save");
@@ -232,52 +233,50 @@ public class AddCoach extends javax.swing.JFrame {
                         .addGap(22, 22, 22)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(txtAdd2, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txtPass, javax.swing.GroupLayout.DEFAULT_SIZE, 99, Short.MAX_VALUE)
-                                    .addComponent(txtUser)
-                                    .addComponent(txtFname, javax.swing.GroupLayout.DEFAULT_SIZE, 99, Short.MAX_VALUE)
-                                    .addComponent(ComCM, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(txtLname, javax.swing.GroupLayout.DEFAULT_SIZE, 99, Short.MAX_VALUE)
-                                    .addComponent(txtEmail, javax.swing.GroupLayout.DEFAULT_SIZE, 99, Short.MAX_VALUE)
-                                    .addComponent(txtPhone, javax.swing.GroupLayout.DEFAULT_SIZE, 99, Short.MAX_VALUE)
-                                    .addComponent(txtAdd1, javax.swing.GroupLayout.DEFAULT_SIZE, 99, Short.MAX_VALUE)
-                                    .addComponent(txtAdd3, javax.swing.GroupLayout.DEFAULT_SIZE, 99, Short.MAX_VALUE)
-                                    .addComponent(txtPost, javax.swing.GroupLayout.DEFAULT_SIZE, 99, Short.MAX_VALUE))
-                                .addGap(62, 62, 62)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(txtAdd2, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtFname, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtLname, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtEmail, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtPhone, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtAdd1, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtAdd3, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtPost, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtUser, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtPass, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(ComCM, javax.swing.GroupLayout.Alignment.LEADING, 0, 110, Short.MAX_VALUE))
+                                .addGap(51, 51, 51)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(jLabel16)
                                         .addGap(58, 58, 58)
-                                        .addComponent(ComCM2, 0, 105, Short.MAX_VALUE))
+                                        .addComponent(AvaTue, 0, 105, Short.MAX_VALUE))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(jLabel14)
                                         .addGap(0, 0, Short.MAX_VALUE))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(jLabel15)
                                         .addGap(66, 66, 66)
-                                        .addComponent(ComCM1, 0, 105, Short.MAX_VALUE))
+                                        .addComponent(AvaMon, 0, 105, Short.MAX_VALUE))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(jLabel17)
                                         .addGap(50, 50, 50)
-                                        .addComponent(ComCM3, 0, 105, Short.MAX_VALUE))
+                                        .addComponent(AvaThu, 0, 105, Short.MAX_VALUE))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(jLabel18)
                                         .addGap(66, 66, 66)
-                                        .addComponent(ComCM4, 0, 105, Short.MAX_VALUE))
+                                        .addComponent(AvaFri, 0, 105, Short.MAX_VALUE))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(jLabel19)
                                         .addGap(50, 50, 50)
-                                        .addComponent(ComCM5, 0, 105, Short.MAX_VALUE))
+                                        .addComponent(AvaSat, 0, 105, Short.MAX_VALUE))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(jLabel20)
                                         .addGap(66, 66, 66)
-                                        .addComponent(ComCM6, 0, 105, Short.MAX_VALUE)))
+                                        .addComponent(AvaSun, 0, 105, Short.MAX_VALUE)))
                                 .addGap(66, 66, 66))))))
         );
         jPanel1Layout.setVerticalGroup(
@@ -298,39 +297,39 @@ public class AddCoach extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(txtPass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel15)
-                        .addComponent(ComCM1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(AvaMon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(11, 11, 11)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(ComCM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel16)
-                    .addComponent(ComCM2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(AvaTue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(txtFname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel17)
-                        .addComponent(ComCM3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(AvaThu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel5))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(txtLname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel18)
-                        .addComponent(ComCM4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(AvaFri, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel6))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7)
                     .addComponent(jLabel19)
-                    .addComponent(ComCM5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(AvaSat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtPhone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel8)
                     .addComponent(jLabel20)
-                    .addComponent(ComCM6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(AvaSun, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtAdd1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -353,7 +352,7 @@ public class AddCoach extends javax.swing.JFrame {
                     .addComponent(jLabel13))
                 .addGap(12, 12, 12)
                 .addComponent(jButton2)
-                .addContainerGap(16, Short.MAX_VALUE))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -412,13 +411,13 @@ public class AddCoach extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> AvaFri;
+    private javax.swing.JComboBox<String> AvaMon;
+    private javax.swing.JComboBox<String> AvaSat;
+    private javax.swing.JComboBox<String> AvaSun;
+    private javax.swing.JComboBox<String> AvaThu;
+    private javax.swing.JComboBox<String> AvaTue;
     private javax.swing.JComboBox<String> ComCM;
-    private javax.swing.JComboBox<String> ComCM1;
-    private javax.swing.JComboBox<String> ComCM2;
-    private javax.swing.JComboBox<String> ComCM3;
-    private javax.swing.JComboBox<String> ComCM4;
-    private javax.swing.JComboBox<String> ComCM5;
-    private javax.swing.JComboBox<String> ComCM6;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JComboBox<String> jComboBox1;

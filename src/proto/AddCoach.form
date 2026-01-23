@@ -107,33 +107,30 @@
                           </Group>
                           <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <Component id="txtAdd2" min="-2" pref="99" max="-2" attributes="0"/>
-                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                              </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="jScrollPane2" min="-2" pref="301" max="-2" attributes="0"/>
                                   <EmptySpace max="32767" attributes="0"/>
                               </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="txtPass" pref="99" max="32767" attributes="0"/>
-                                      <Component id="txtUser" max="32767" attributes="0"/>
-                                      <Component id="txtFname" alignment="0" pref="99" max="32767" attributes="0"/>
-                                      <Component id="ComCM" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="txtLname" alignment="0" pref="99" max="32767" attributes="0"/>
-                                      <Component id="txtEmail" alignment="0" pref="99" max="32767" attributes="0"/>
-                                      <Component id="txtPhone" alignment="0" pref="99" max="32767" attributes="0"/>
-                                      <Component id="txtAdd1" alignment="0" pref="99" max="32767" attributes="0"/>
-                                      <Component id="txtAdd3" alignment="0" pref="99" max="32767" attributes="0"/>
-                                      <Component id="txtPost" alignment="0" pref="99" max="32767" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <Group type="103" groupAlignment="1" attributes="0">
+                                      <Component id="txtAdd2" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="txtFname" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="txtLname" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="txtEmail" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="txtPhone" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="txtAdd1" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="txtAdd3" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="txtPost" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="txtUser" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="txtPass" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="ComCM" alignment="0" pref="110" max="32767" attributes="0"/>
                                   </Group>
-                                  <EmptySpace min="-2" pref="62" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" attributes="0">
                                           <Component id="jLabel16" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
-                                          <Component id="ComCM2" pref="105" max="32767" attributes="0"/>
+                                          <Component id="AvaTue" pref="105" max="32767" attributes="0"/>
                                       </Group>
                                       <Group type="102" attributes="0">
                                           <Component id="jLabel14" min="-2" max="-2" attributes="0"/>
@@ -142,27 +139,27 @@
                                       <Group type="102" attributes="0">
                                           <Component id="jLabel15" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
-                                          <Component id="ComCM1" pref="105" max="32767" attributes="0"/>
+                                          <Component id="AvaMon" pref="105" max="32767" attributes="0"/>
                                       </Group>
                                       <Group type="102" attributes="0">
                                           <Component id="jLabel17" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
-                                          <Component id="ComCM3" pref="105" max="32767" attributes="0"/>
+                                          <Component id="AvaThu" pref="105" max="32767" attributes="0"/>
                                       </Group>
                                       <Group type="102" attributes="0">
                                           <Component id="jLabel18" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
-                                          <Component id="ComCM4" pref="105" max="32767" attributes="0"/>
+                                          <Component id="AvaFri" pref="105" max="32767" attributes="0"/>
                                       </Group>
                                       <Group type="102" attributes="0">
                                           <Component id="jLabel19" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
-                                          <Component id="ComCM5" pref="105" max="32767" attributes="0"/>
+                                          <Component id="AvaSat" pref="105" max="32767" attributes="0"/>
                                       </Group>
                                       <Group type="102" attributes="0">
                                           <Component id="jLabel20" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
-                                          <Component id="ComCM6" pref="105" max="32767" attributes="0"/>
+                                          <Component id="AvaSun" pref="105" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
@@ -193,7 +190,7 @@
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="txtPass" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel15" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="ComCM1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="AvaMon" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
@@ -201,14 +198,14 @@
                       <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="ComCM" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel16" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="ComCM2" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="AvaTue" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="txtFname" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel17" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="ComCM3" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="AvaThu" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
                   </Group>
@@ -217,7 +214,7 @@
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="txtLname" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel18" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="ComCM4" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="AvaFri" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
                   </Group>
@@ -226,14 +223,14 @@
                       <Component id="txtEmail" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel19" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="ComCM5" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="AvaSat" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="txtPhone" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel20" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="ComCM6" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="AvaSun" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -262,7 +259,7 @@
                   </Group>
                   <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                   <Component id="jButton2" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="16" max="32767" attributes="0"/>
+                  <EmptySpace pref="26" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -536,12 +533,15 @@
             <Component class="javax.swing.JTextArea" name="txtQual">
               <Properties>
                 <Property name="columns" type="int" value="20"/>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Courier New" size="12" style="0"/>
+                </Property>
                 <Property name="rows" type="int" value="5"/>
               </Properties>
             </Component>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JComboBox" name="ComCM1">
+        <Component class="javax.swing.JComboBox" name="AvaMon">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Courier New" size="12" style="0"/>
@@ -558,7 +558,7 @@
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JComboBox" name="ComCM2">
+        <Component class="javax.swing.JComboBox" name="AvaTue">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Courier New" size="12" style="0"/>
@@ -575,7 +575,7 @@
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JComboBox" name="ComCM3">
+        <Component class="javax.swing.JComboBox" name="AvaThu">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Courier New" size="12" style="0"/>
@@ -592,7 +592,7 @@
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JComboBox" name="ComCM4">
+        <Component class="javax.swing.JComboBox" name="AvaFri">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Courier New" size="12" style="0"/>
@@ -609,7 +609,7 @@
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JComboBox" name="ComCM5">
+        <Component class="javax.swing.JComboBox" name="AvaSat">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Courier New" size="12" style="0"/>
@@ -626,7 +626,7 @@
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JComboBox" name="ComCM6">
+        <Component class="javax.swing.JComboBox" name="AvaSun">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Courier New" size="12" style="0"/>
