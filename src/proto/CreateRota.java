@@ -51,7 +51,7 @@ public class CreateRota extends javax.swing.JFrame {
         txtFriday = new javax.swing.JTextField();
         txtSaturday = new javax.swing.JTextField();
         txtSunday = new javax.swing.JTextField();
-        ComWeek = new javax.swing.JComboBox<>();
+        ComWeek1 = new javax.swing.JComboBox<>();
         jButton2 = new javax.swing.JButton();
         ComMon = new javax.swing.JComboBox<>();
         ComTue = new javax.swing.JComboBox<>();
@@ -65,6 +65,10 @@ public class CreateRota extends javax.swing.JFrame {
         jButton7 = new javax.swing.JButton();
         jButton8 = new javax.swing.JButton();
         jButton9 = new javax.swing.JButton();
+        ComWeek2 = new javax.swing.JComboBox<>();
+        ComWeek3 = new javax.swing.JComboBox<>();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
 
         jLabel2.setFont(new java.awt.Font("Courier New", 0, 12)); // NOI18N
         jLabel2.setText("Date of week start");
@@ -120,11 +124,10 @@ public class CreateRota extends javax.swing.JFrame {
 
         txtSunday.setFont(new java.awt.Font("Courier New", 0, 12)); // NOI18N
 
-        ComWeek.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
-        ComWeek.setSelectedIndex(-1);
-        ComWeek.addActionListener(new java.awt.event.ActionListener() {
+        ComWeek1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " ", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
+        ComWeek1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ComWeekActionPerformed(evt);
+                ComWeek1ActionPerformed(evt);
             }
         });
 
@@ -136,48 +139,42 @@ public class CreateRota extends javax.swing.JFrame {
             }
         });
 
-        ComMon.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
-        ComMon.setSelectedIndex(-1);
+        ComMon.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "Karren", "Kate", "Karl" }));
         ComMon.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ComMonActionPerformed(evt);
             }
         });
 
-        ComTue.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
-        ComTue.setSelectedIndex(-1);
+        ComTue.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "Karren", "Kate", "Karl" }));
         ComTue.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ComTueActionPerformed(evt);
             }
         });
 
-        ComThu.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
-        ComThu.setSelectedIndex(-1);
+        ComThu.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "Karren", "Kate", "Karl" }));
         ComThu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ComThuActionPerformed(evt);
             }
         });
 
-        ComFri.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
-        ComFri.setSelectedIndex(-1);
+        ComFri.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "Karren", "Kate", "Karl" }));
         ComFri.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ComFriActionPerformed(evt);
             }
         });
 
-        ComSat.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
-        ComSat.setSelectedIndex(-1);
+        ComSat.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "Karren", "Kate", "Karl" }));
         ComSat.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ComSatActionPerformed(evt);
             }
         });
 
-        ComSun.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
-        ComSun.setSelectedIndex(-1);
+        ComSun.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "Karren", "Kate", "Karl" }));
         ComSun.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ComSunActionPerformed(evt);
@@ -232,17 +229,32 @@ public class CreateRota extends javax.swing.JFrame {
             }
         });
 
+        ComWeek2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " ", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" }));
+        ComWeek2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ComWeek2ActionPerformed(evt);
+            }
+        });
+
+        ComWeek3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "2025", "2026", "2027", "2028", "2029", "2030", "2031", "2032", "2033", "2034", "2035", "2036", "2037", "2038", "2039", "2040", "2041", "2042", "2043", "2044", "2045", "2046", "2047", "2048", "2049", "2050", "2051", "2052", "2053", "2054", "2055", "2056", "2057", "2058", "2059", "2060", "2061", "2062", "2063", "2064", "2065", "2066", "2067", "2068", "2069", "2070", "2071", "2072", "2073", "2074", "2075" }));
+        ComWeek3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ComWeek3ActionPerformed(evt);
+            }
+        });
+
+        jLabel10.setFont(new java.awt.Font("Courier New", 0, 24)); // NOI18N
+        jLabel10.setText("/");
+
+        jLabel11.setFont(new java.awt.Font("Courier New", 0, 24)); // NOI18N
+        jLabel11.setText("/");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jButton1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel1))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(44, 44, 44)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -252,42 +264,61 @@ public class CreateRota extends javax.swing.JFrame {
                             .addComponent(jLabel6)
                             .addComponent(jLabel5)
                             .addComponent(jLabel3)
-                            .addComponent(jLabel4))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtMonday, javax.swing.GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE)
-                            .addComponent(txtTuesday, javax.swing.GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE)
-                            .addComponent(txtFriday, javax.swing.GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE)
-                            .addComponent(txtThursday, javax.swing.GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE)
-                            .addComponent(txtSaturday, javax.swing.GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE)
-                            .addComponent(txtSunday, javax.swing.GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE)
-                            .addComponent(ComWeek, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(jLabel4)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jButton1)))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jLabel1))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(ComThu, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtMonday, javax.swing.GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE)
+                                    .addComponent(txtTuesday, javax.swing.GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE)
+                                    .addComponent(txtFriday, javax.swing.GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE)
+                                    .addComponent(txtThursday, javax.swing.GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE)
+                                    .addComponent(txtSaturday, javax.swing.GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE)
+                                    .addComponent(txtSunday, javax.swing.GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(ComThu, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(ComFri, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(ComSat, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(ComSun, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(ComMon, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(ComTue, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(ComFri, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(ComSat, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(ComSun, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(ComMon, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(ComTue, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(ComWeek1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(6, 6, 6)
+                                .addComponent(jLabel10)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(ComWeek2, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel11)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(ComWeek3, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 38, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -302,10 +333,14 @@ public class CreateRota extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(jButton1))
-                .addGap(38, 38, 38)
+                .addGap(32, 32, 32)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(ComWeek, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(ComWeek1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel10)
+                    .addComponent(ComWeek2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel11)
+                    .addComponent(ComWeek3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
@@ -325,11 +360,12 @@ public class CreateRota extends javax.swing.JFrame {
                     .addComponent(ComThu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton6))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(txtFriday, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ComFri, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton7))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(ComFri, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel7)
+                        .addComponent(txtFriday, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButton7)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
@@ -344,7 +380,7 @@ public class CreateRota extends javax.swing.JFrame {
                     .addComponent(jButton9))
                 .addGap(18, 18, 18)
                 .addComponent(jButton2)
-                .addContainerGap(16, Short.MAX_VALUE))
+                .addContainerGap(13, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -367,12 +403,14 @@ public class CreateRota extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void ComWeekActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComWeekActionPerformed
+    private void ComWeek1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComWeek1ActionPerformed
         // TODO d your handling code here:
-    }//GEN-LAST:event_ComWeekActionPerformed
+    }//GEN-LAST:event_ComWeek1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        String week1 = (String) ComWeek.getSelectedItem();
+        String week1 = (String) ComWeek1.getSelectedItem();
+        String week2 = (String) ComWeek2.getSelectedItem();
+        String week3 = (String) ComWeek3.getSelectedItem();
         String Mon = txtMonday.getText();
         String Tue = txtTuesday.getText();
         String Thu = txtThursday.getText();
@@ -380,7 +418,7 @@ public class CreateRota extends javax.swing.JFrame {
         String Sat = txtSaturday.getText();
         String Sun = txtSunday.getText();
         
-        if(week1.isBlank()||Mon.isBlank()||Tue.isBlank()||Thu.isBlank()||Fri.isBlank()||Sat.isBlank()||Sun.isBlank()){
+        if(week1.isBlank()||week2.isBlank()||week3.isBlank()||Mon.isBlank()||Tue.isBlank()||Thu.isBlank()||Fri.isBlank()||Sat.isBlank()||Sun.isBlank()){
             JOptionPane.showMessageDialog(rootPane, "All fields must be filled in");
         }
         else if(Mon.contains(",")||Tue.contains(",")||Thu.contains(",")||Fri.contains(",")||Sun.contains(",")||Sat.contains(",")){
@@ -391,12 +429,14 @@ public class CreateRota extends javax.swing.JFrame {
             try {
                 fw = new FileWriter("Rota.txt", true);
                 BufferedWriter bw = new BufferedWriter(fw);
-                bw.write(Mon+","+Tue+","+Thu+","+Fri+","+Sat+","+Sun);
+                bw.write(week1+"/"+week2+"/"+week3+","+Mon+","+Tue+","+Thu+","+Fri+","+Sat+","+Sun);
                 bw.newLine();
                 bw.close();
                 fw.close();
                 JOptionPane.showMessageDialog(rootPane, "Rota saved to file");
-                ComWeek.setSelectedIndex(-1);
+                ComWeek1.setSelectedIndex(0);
+                ComWeek2.setSelectedIndex(0);
+                ComWeek3.setSelectedIndex(0);
                 txtMonday.setText("");
                 txtTuesday.setText("");
                 txtThursday.setText("");
@@ -440,28 +480,108 @@ public class CreateRota extends javax.swing.JFrame {
     }//GEN-LAST:event_ComSunActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
+        String Contain = txtMonday.getText();
+        String toAdd = (String) ComMon.getSelectedItem();
+        if(toAdd.isBlank()){
+            JOptionPane.showMessageDialog(rootPane, "Select a coach before adding to rota");
+        }
+        else if(Contain.isBlank()){
+            txtMonday.setText(toAdd);
+            ComMon.setSelectedIndex(0);
+        }
+        else{
+            txtMonday.setText(Contain+" "+toAdd);
+            ComMon.setSelectedIndex(0);
+        }
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
+        String Contain = txtTuesday.getText();
+        String toAdd = (String) ComTue.getSelectedItem();
+        if(toAdd.isBlank()){
+            JOptionPane.showMessageDialog(rootPane, "Select a coach before adding to rota");
+        }
+        else if(Contain.isBlank()){
+            txtTuesday.setText(toAdd);
+            ComTue.setSelectedIndex(0);
+        }
+        else{
+            txtTuesday.setText(Contain+" "+toAdd);
+            ComTue.setSelectedIndex(0);
+        }
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        // TODO add your handling code here:
+        String Contain = txtThursday.getText();
+        String toAdd = (String) ComThu.getSelectedItem();
+        if(toAdd.isBlank()){
+            JOptionPane.showMessageDialog(rootPane, "Select a coach before adding to rota");
+        }
+        else if(Contain.isBlank()){
+            txtThursday.setText(toAdd);
+            ComThu.setSelectedIndex(0);
+        }
+        else{
+            txtThursday.setText(Contain+" "+toAdd);
+            ComThu.setSelectedIndex(0);
+        }
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        // TODO add your handling code here:
+        String Contain = txtFriday.getText();
+        String toAdd = (String) ComFri.getSelectedItem();
+        if(toAdd.isBlank()){
+            JOptionPane.showMessageDialog(rootPane, "Select a coach before adding to rota");
+        }
+        else if(Contain.isBlank()){
+            txtFriday.setText(toAdd);
+            ComFri.setSelectedIndex(0);
+        }
+        else{
+            txtFriday.setText(Contain+" "+toAdd);
+            ComFri.setSelectedIndex(0);
+        }
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        // TODO add your handling code here:
+        String Contain = txtSaturday.getText();
+        String toAdd = (String) ComSat.getSelectedItem();
+        if(toAdd.isBlank()){
+            JOptionPane.showMessageDialog(rootPane, "Select a coach before adding to rota");
+        }
+        else if(Contain.isBlank()){
+            txtSaturday.setText(toAdd);
+            ComSat.setSelectedIndex(0);
+        }
+        else{
+            txtSaturday.setText(Contain+" "+toAdd);
+            ComSat.setSelectedIndex(0);
+        }
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-        // TODO add your handling code here:
+        String Contain = txtSunday.getText();
+        String toAdd = (String) ComSun.getSelectedItem();
+        if(toAdd.isBlank()){
+            JOptionPane.showMessageDialog(rootPane, "Select a coach before adding to rota");
+        }
+        else if(Contain.isBlank()){
+            txtSunday.setText(toAdd);
+            ComSun.setSelectedIndex(0);
+        }
+        else{
+            txtSunday.setText(Contain+" "+toAdd);
+            ComSun.setSelectedIndex(0);
+        }
     }//GEN-LAST:event_jButton9ActionPerformed
+
+    private void ComWeek2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComWeek2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ComWeek2ActionPerformed
+
+    private void ComWeek3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComWeek3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ComWeek3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -505,7 +625,9 @@ public class CreateRota extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> ComSun;
     private javax.swing.JComboBox<String> ComThu;
     private javax.swing.JComboBox<String> ComTue;
-    private javax.swing.JComboBox<String> ComWeek;
+    private javax.swing.JComboBox<String> ComWeek1;
+    private javax.swing.JComboBox<String> ComWeek2;
+    private javax.swing.JComboBox<String> ComWeek3;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton4;
@@ -516,6 +638,8 @@ public class CreateRota extends javax.swing.JFrame {
     private javax.swing.JButton jButton9;
     private javax.swing.JComboBox<String> jComboBox5;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
