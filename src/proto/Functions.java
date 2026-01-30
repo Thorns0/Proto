@@ -16,6 +16,7 @@ import java.util.logging.Logger;
  * @author adg19f
  */
 public class Functions {
+    // a function to get the contents of the last line in a file
     public String GetLastLine(String file){
         String val = "0";
         FileReader fr = null;
@@ -43,6 +44,7 @@ public class Functions {
         return val;
     }
     
+    //Creating the number fo either swimmerID or coachID to ensure that they are all unique
     public int CreateID(String file){
         String val = GetLastLine(file);
         String [] store;
@@ -60,6 +62,7 @@ public class Functions {
         }
     }
     
+    //counting the number of swimmers in a certain group
     public int countFile(String file, String find){
         FileReader fr = null;
             int num = 0;
@@ -94,6 +97,7 @@ public class Functions {
         return num;
     }
     
+    //Finding the number of line in a file
     public int lineInFile(String file){
         int num = 0;
         String Line;
@@ -121,6 +125,7 @@ public class Functions {
         return num;
     }
     
+    //printing a 2D array to the system
     public void print2darry(String[][]arr){
         for(int i=0;i<arr.length;i++){
             for(int y=0;y<arr[i].length;y++){

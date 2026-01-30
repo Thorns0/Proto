@@ -4,6 +4,8 @@
  */
 package proto;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author adg19f
@@ -198,6 +200,11 @@ public class AddCoach extends javax.swing.JFrame {
 
         jButton2.setFont(new java.awt.Font("Courier New", 0, 12)); // NOI18N
         jButton2.setText("Save");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -374,6 +381,31 @@ public class AddCoach extends javax.swing.JFrame {
         MC.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        String user = txtUser.getText();
+        String pass = txtPass.getText();
+        String ComMem = (String) ComCM.getSelectedItem();
+        String Fname = txtFname.getText();
+        String Lname = txtLname.getText();
+        String email = txtEmail.getText();
+        String phone = txtPhone.getText();
+        String add1 = txtAdd1.getText();
+        String add2 = txtAdd2.getText();
+        String add3 = txtAdd3.getText();
+        String post = txtPost.getText();
+        String qual = txtQual.getText();
+        String mon = (String) AvaMon.getSelectedItem();
+        String tue = (String) AvaTue.getSelectedItem();
+        String thu = (String) AvaThu.getSelectedItem();
+        String fri = (String) AvaFri.getSelectedItem();
+        String sat = (String) AvaSat.getSelectedItem();
+        String sun = (String) AvaSun.getSelectedItem();
+        
+        if(user.isBlank()||pass.isBlank()||ComMem.isBlank()||Fname.isBlank()||Lname.isBlank()||email.isBlank()||phone.isBlank()||add1.isBlank()||add2.isBlank()||add3.isBlank()||post.isBlank()||qual.isBlank()||mon.isBlank()||tue.isBlank()||thu.isBlank()||fri.isBlank()||sat.isBlank()||sun.isBlank()){
+            JOptionPane.showMessageDialog(rootPane, "All fields must contain something");
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
