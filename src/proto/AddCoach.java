@@ -401,10 +401,22 @@ public class AddCoach extends javax.swing.JFrame {
         String fri = (String) AvaFri.getSelectedItem();
         String sat = (String) AvaSat.getSelectedItem();
         String sun = (String) AvaSun.getSelectedItem();
+        String Femail = email.substring(0, 1);
+        String Lemail = email.substring(email.length()-1);
         
         if(user.isBlank()||pass.isBlank()||ComMem.isBlank()||Fname.isBlank()||Lname.isBlank()||email.isBlank()||phone.isBlank()||add1.isBlank()||add2.isBlank()||add3.isBlank()||post.isBlank()||qual.isBlank()||mon.isBlank()||tue.isBlank()||thu.isBlank()||fri.isBlank()||sat.isBlank()||sun.isBlank()){
             JOptionPane.showMessageDialog(rootPane, "All fields must contain something");
         }
+        else if(!email.contains("@")||!email.contains(".")||Femail.equals("@")||Femail.equals(".")||Lemail.equals(".")||Lemail.equals("@")){
+            JOptionPane.showMessageDialog(rootPane, "Email must contain an @ and a . and the @ and . can't be the first or last character");
+        }
+        else if(phone.length()>11||phone.length()<11){
+            JOptionPane.showMessageDialog(rootPane, "Phone number must be exactly 11 digits long");
+        }
+        else if(user.contains(",")||pass.contains(",")||Fname.contains(",")||Lname.contains(",")||email.contains(",")||phone.contains(",")||add1.contains(",")||add2.contains(",")||add3.contains(",")||post.contains(",")||qual.contains(",")){
+            JOptionPane.showMessageDialog(rootPane, "No fields can contain ,");
+        }
+        
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
