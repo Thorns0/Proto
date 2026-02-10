@@ -4,6 +4,14 @@
  */
 package proto;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -403,6 +411,9 @@ public class AddCoach extends javax.swing.JFrame {
         String sun = (String) AvaSun.getSelectedItem();
         String Femail = email.substring(0, 1);
         String Lemail = email.substring(email.length()-1);
+        Boolean sameUser = false;
+        String Line;
+        String [] inFile;
         
         if(user.isBlank()||pass.isBlank()||ComMem.isBlank()||Fname.isBlank()||Lname.isBlank()||email.isBlank()||phone.isBlank()||add1.isBlank()||add2.isBlank()||add3.isBlank()||post.isBlank()||qual.isBlank()||mon.isBlank()||tue.isBlank()||thu.isBlank()||fri.isBlank()||sat.isBlank()||sun.isBlank()){
             JOptionPane.showMessageDialog(rootPane, "All fields must contain something");
@@ -415,6 +426,75 @@ public class AddCoach extends javax.swing.JFrame {
         }
         else if(user.contains(",")||pass.contains(",")||Fname.contains(",")||Lname.contains(",")||email.contains(",")||phone.contains(",")||add1.contains(",")||add2.contains(",")||add3.contains(",")||post.contains(",")||qual.contains(",")){
             JOptionPane.showMessageDialog(rootPane, "No fields can contain ,");
+        }
+        
+        else{
+            FileReader fr = null;
+            try {
+                fr = new FileReader("Coaches.txt");
+                BufferedReader br = new BufferedReader(fr);
+                try {
+                    while((Line = br.readLine())!=null){
+                        inFile = Line.split(",");
+                        if(inFile[0].equals(user)){
+                            sameUser = true;
+                        }
+                    }
+                    br.close();
+                    fr.close();
+                } catch (IOException ex) {
+                    Logger.getLogger(AddCoach.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            } catch (FileNotFoundException ex) {
+                Logger.getLogger(AddCoach.class.getName()).log(Level.SEVERE, null, ex);
+            } finally {
+                try {
+                    fr.close();
+                } catch (IOException ex) {
+                    Logger.getLogger(AddCoach.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            if(sameUser){
+                JOptionPane.showMessageDialog(rootPane, "Username is taken, please enter a different username");
+            }
+            else{
+                FileWriter fw = null;
+                try {
+                    fw = new FileWriter("Coaches.txt", true);
+                    BufferedWriter bw = new BufferedWriter(fw);
+                    bw.append(user+","+pass+","+ComMem+","+Fname+","+Lname+","+email+","+phone+","+add1+","+add2+","+add3+","+post+","+qual+","+mon+","+tue+","+thu+","+fri+","+sat+","+sun);
+                    bw.newLine();
+                    bw.close();
+                    fw.close();
+                    JOptionPane.showMessageDialog(rootPane, "User saved to file");
+                    txtUser.setText("");
+                    txtPass.setText("");
+                    ComCM.setSelectedIndex(0);
+                    txtFname.setText("");
+                    txtLname.setText("");
+                    txtEmail.setText("");
+                    txtPhone.setText("");
+                    txtAdd1.setText("");
+                    txtAdd2.setText("");
+                    txtAdd3.setText("");
+                    txtPost.setText("");
+                    txtQual.setText("");
+                    AvaMon.setSelectedIndex(0);
+                    AvaTue.setSelectedIndex(0);
+                    AvaThu.setSelectedIndex(0);
+                    AvaFri.setSelectedIndex(0);
+                    AvaSat.setSelectedIndex(0);
+                    AvaSun.setSelectedIndex(0);
+                } catch (IOException ex) {
+                    Logger.getLogger(AddCoach.class.getName()).log(Level.SEVERE, null, ex);
+                } finally {
+                    try {
+                        fw.close();
+                    } catch (IOException ex) {
+                        Logger.getLogger(AddCoach.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
+            }
         }
         
     }//GEN-LAST:event_jButton2ActionPerformed
