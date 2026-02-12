@@ -391,6 +391,7 @@ public class AddCoach extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        Functions fun = new Functions();
         String user = txtUser.getText();
         String pass = txtPass.getText();
         String ComMem = (String) ComCM.getSelectedItem();
@@ -414,6 +415,9 @@ public class AddCoach extends javax.swing.JFrame {
         Boolean sameUser = false;
         String Line;
         String [] inFile;
+        int IDnum;
+        String IDnumStore;
+        String ID;
         
         if(user.isBlank()||pass.isBlank()||ComMem.isBlank()||Fname.isBlank()||Lname.isBlank()||email.isBlank()||phone.isBlank()||add1.isBlank()||add2.isBlank()||add3.isBlank()||post.isBlank()||qual.isBlank()||mon.isBlank()||tue.isBlank()||thu.isBlank()||fri.isBlank()||sat.isBlank()||sun.isBlank()){
             JOptionPane.showMessageDialog(rootPane, "All fields must contain something");
@@ -436,7 +440,7 @@ public class AddCoach extends javax.swing.JFrame {
                 try {
                     while((Line = br.readLine())!=null){
                         inFile = Line.split(",");
-                        if(inFile[0].equals(user)){
+                        if(inFile[1].equals(user)){
                             sameUser = true;
                         }
                     }
@@ -458,15 +462,18 @@ public class AddCoach extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(rootPane, "Username is taken, please enter a different username");
             }
             else{
+                IDnum = fun.CreateID("Coaches.txt");
+                IDnumStore = Integer.toString(IDnum);
+                ID = "CH" + IDnumStore;
                 FileWriter fw = null;
                 try {
                     fw = new FileWriter("Coaches.txt", true);
                     BufferedWriter bw = new BufferedWriter(fw);
-                    bw.append(user+","+pass+","+ComMem+","+Fname+","+Lname+","+email+","+phone+","+add1+","+add2+","+add3+","+post+","+qual+","+mon+","+tue+","+thu+","+fri+","+sat+","+sun);
+                    bw.append(ID+","+user+","+pass+","+ComMem+","+Fname+","+Lname+","+email+","+phone+","+add1+","+add2+","+add3+","+post+","+qual+","+mon+","+tue+","+thu+","+fri+","+sat+","+sun);
                     bw.newLine();
                     bw.close();
                     fw.close();
-                    JOptionPane.showMessageDialog(rootPane, "User saved to file");
+                    JOptionPane.showMessageDialog(rootPane, "User saved to file, CoachID is " + ID);
                     txtUser.setText("");
                     txtPass.setText("");
                     ComCM.setSelectedIndex(0);

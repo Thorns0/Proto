@@ -1,1 +1,2 @@
-Admin,LetMeIn,Yes,Admin,Admin,RaysAdmin@gmail.com,19237465019,Mold Road,Ruthin,Denbishire,LL15 1EG,n/a,No,No,No,No,No,No
+CH0,Admin,LetMeIn,Yes,Admin,Admin,RaysAdmin@gmail.com,19237465019,Mold Road,Ruthin,Denbishire,LL15 1EG,n/a,No,No,No,No,No,No
+CH1,Robby1,PassW0rd,No,Robert,Robertson,RobertRob@gmail.com,18475019273,15 Big Street,Townsplace,Wrexham,LL17 1SI,Level 2 coach/ First aid,Yes,No,Yes,Yes,No,No
