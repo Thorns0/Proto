@@ -4,6 +4,8 @@
  */
 package proto;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author adg19f
@@ -130,10 +132,16 @@ public class MainGala extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        Functions fun = new Functions();
         String user = LabUser.getText();
-        AddGala AG = new AddGala(user);
-        AG.setVisible(true);
-        this.setVisible(false);
+        if(fun.CheckComMem(user)){
+            AddGala AG = new AddGala(user);
+            AG.setVisible(true);
+            this.setVisible(false);
+        }
+        else{
+            JOptionPane.showMessageDialog(rootPane, "You must be an approved member of the committe to access this window.");
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed

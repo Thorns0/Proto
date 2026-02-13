@@ -4,6 +4,8 @@
  */
 package proto;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author adg19f
@@ -150,16 +152,22 @@ public class MainWeek extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         String user = LabUser.getText();
-        ViewRota VR = new ViewRota(user);
-        VR.setVisible(true);
-        this.setVisible(false);
+            ViewRota VR = new ViewRota(user);
+            VR.setVisible(true);
+            this.setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        Functions fun = new Functions();
         String user = LabUser.getText();
-        CreateRota CR = new CreateRota(user);
-        CR.setVisible(true);
-        this.setVisible(false);
+        if(fun.CheckComMem(user)){
+            CreateRota CR = new CreateRota(user);
+            CR.setVisible(true);
+            this.setVisible(false);
+        }
+        else{
+            JOptionPane.showMessageDialog(rootPane, "You must be an approved member of the committe to access this window.");
+        }
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed

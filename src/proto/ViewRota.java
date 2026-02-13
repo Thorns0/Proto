@@ -21,13 +21,13 @@ public class ViewRota extends javax.swing.JFrame {
     /**
      * Creates new form ViewRota
      */
-    public ViewRota(String user){
+    public ViewRota(){
         initComponents();
-        LabUser.setText(user);
     }
     
-    public ViewRota() {
+    public ViewRota(String user) {
         initComponents();
+        LabUser.setText(user);
         Functions fun = new Functions();
         String [] arry = new String [fun.lineInFile("Rota.txt")];
         String [] temp;

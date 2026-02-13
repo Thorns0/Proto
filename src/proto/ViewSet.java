@@ -20,13 +20,13 @@ public class ViewSet extends javax.swing.JFrame {
     /**
      * Creates new form ViewSet
      */
-    public ViewSet(String user){
+    public ViewSet(){
         initComponents();
-        LabUser.setText(user);
     }
     
-    public ViewSet() {
+    public ViewSet(String user) {
         initComponents();
+        LabUser.setText(user);
         Functions fun = new Functions();
         String [] arr = new String [fun.lineInFile("Sets.txt")];
         String [] temp;

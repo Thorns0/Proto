@@ -4,6 +4,8 @@
  */
 package proto;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author thorns
@@ -165,10 +167,16 @@ public class MainMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        Functions fun = new Functions();
         String user = LabUser.getText();
-        MainCoach MC = new MainCoach(user);
-        MC.setVisible(true);
-        this.setVisible(false);
+        if(fun.CheckComMem(user)){
+            MainCoach MC = new MainCoach(user);
+            MC.setVisible(true);
+            this.setVisible(false);   
+        }
+        else{
+            JOptionPane.showMessageDialog(rootPane, "You must be an approved member of the committe to access this window.");
+        }
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed

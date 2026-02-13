@@ -23,14 +23,14 @@ public class CreateSet extends javax.swing.JFrame {
     /**
      * Creates new form CreateSet
      */
-    public CreateSet(String user){
+    public CreateSet(){
         initComponents();
-        LabUser.setText(user);
     }
     
-    public CreateSet() {
+    public CreateSet(String user) {
         //Putting the contents of a file into a combo box
         initComponents();
+        LabUser.setText(user);
         Functions fun = new Functions();
         String [] arr = new String [fun.lineInFile("Drills.txt")];
         String Line;

@@ -4,6 +4,8 @@
  */
 package proto;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author adg19f
@@ -139,17 +141,29 @@ public class MainSet extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        Functions fun = new Functions();
         String user = LabUser.getText();
-        AddDrill AD = new AddDrill(user);
-        AD.setVisible(true);
-        this.setVisible(false);
+        if(fun.CheckComMem(user)){
+            AddDrill AD = new AddDrill(user);
+            AD.setVisible(true);
+            this.setVisible(false);
+        }
+        else{
+            JOptionPane.showMessageDialog(rootPane, "You must be an approved member of the committe to access this window.");
+        }
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        Functions fun = new Functions();
         String user = LabUser.getText();
-        CreateSet CS = new CreateSet(user);
-        CS.setVisible(true);
-        this.setVisible(false);
+        if(fun.CheckComMem(user)){
+            CreateSet CS = new CreateSet(user);
+            CS.setVisible(true);
+            this.setVisible(false);
+        }
+        else{
+            JOptionPane.showMessageDialog(rootPane, "You must be an approved member of the committe to access this window.");
+        }
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
