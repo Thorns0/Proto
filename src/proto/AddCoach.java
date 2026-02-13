@@ -492,6 +492,11 @@ public class AddCoach extends javax.swing.JFrame {
                     AvaFri.setSelectedIndex(0);
                     AvaSat.setSelectedIndex(0);
                     AvaSun.setSelectedIndex(0);
+                    if(ComMem.equals("YES")){
+                        FileWriter FW = new FileWriter("ComMembers.txt", true);
+                        BufferedWriter BW = new BufferedWriter(FW);
+                        BW.append(ID+","+user);
+                    }
                 } catch (IOException ex) {
                     Logger.getLogger(AddCoach.class.getName()).log(Level.SEVERE, null, ex);
                 } finally {
