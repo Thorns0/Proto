@@ -23,6 +23,11 @@ public class CreateRota extends javax.swing.JFrame {
     public CreateRota() {
         initComponents();
     }
+    
+    public CreateRota(String user){
+        initComponents();
+        LabUser.setText(user);
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -36,7 +41,7 @@ public class CreateRota extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jComboBox5 = new javax.swing.JComboBox<>();
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        LabUser = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -80,8 +85,8 @@ public class CreateRota extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(179, 22, 235));
 
-        jLabel1.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
-        jLabel1.setText("Admin");
+        LabUser.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
+        LabUser.setText("User");
 
         jButton1.setFont(new java.awt.Font("Courier New", 0, 12)); // NOI18N
         jButton1.setText("Back");
@@ -272,7 +277,7 @@ public class CreateRota extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jLabel1))
+                        .addComponent(LabUser))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -331,7 +336,7 @@ public class CreateRota extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
+                    .addComponent(LabUser)
                     .addComponent(jButton1))
                 .addGap(32, 32, 32)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -398,7 +403,8 @@ public class CreateRota extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        MainWeek MW = new MainWeek();
+        String user = LabUser.getText();
+        MainWeek MW = new MainWeek(user);
         MW.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -628,6 +634,7 @@ public class CreateRota extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> ComWeek1;
     private javax.swing.JComboBox<String> ComWeek2;
     private javax.swing.JComboBox<String> ComWeek3;
+    private javax.swing.JLabel LabUser;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton4;
@@ -637,7 +644,6 @@ public class CreateRota extends javax.swing.JFrame {
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
     private javax.swing.JComboBox<String> jComboBox5;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;

@@ -23,6 +23,11 @@ public class CreateSet extends javax.swing.JFrame {
     /**
      * Creates new form CreateSet
      */
+    public CreateSet(String user){
+        initComponents();
+        LabUser.setText(user);
+    }
+    
     public CreateSet() {
         //Putting the contents of a file into a combo box
         initComponents();
@@ -68,7 +73,7 @@ public class CreateSet extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        LabUser = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -93,8 +98,8 @@ public class CreateSet extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(179, 22, 235));
 
-        jLabel1.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
-        jLabel1.setText("Admin");
+        LabUser.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
+        LabUser.setText("User");
 
         jButton1.setFont(new java.awt.Font("Courier New", 0, 12)); // NOI18N
         jButton1.setText("Back");
@@ -185,7 +190,7 @@ public class CreateSet extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(jButton1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel1))
+                        .addComponent(LabUser))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(58, 58, 58)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -232,7 +237,7 @@ public class CreateSet extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton1)
-                    .addComponent(jLabel1))
+                    .addComponent(LabUser))
                 .addGap(63, 63, 63)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
@@ -277,7 +282,8 @@ public class CreateSet extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        MainSet MS =new MainSet();
+        String user = LabUser.getText();
+        MainSet MS =new MainSet(user);
         MS.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -386,11 +392,11 @@ public class CreateSet extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> Date2;
     private javax.swing.JComboBox<String> Date3;
     private javax.swing.JComboBox<String> DrillBox;
+    private javax.swing.JLabel LabUser;
     private javax.swing.JComboBox<String> StrokeDrop;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

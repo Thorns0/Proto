@@ -16,6 +16,11 @@ public class SearchCoach extends javax.swing.JFrame {
     public SearchCoach() {
         initComponents();
     }
+    
+    public SearchCoach(String user){
+        initComponents();
+        LabUser.setText(user);
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -28,7 +33,7 @@ public class SearchCoach extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        LabUser = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         jTextField2 = new javax.swing.JTextField();
@@ -49,8 +54,8 @@ public class SearchCoach extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Courier New", 0, 12)); // NOI18N
-        jLabel1.setText("User");
+        LabUser.setFont(new java.awt.Font("Courier New", 0, 12)); // NOI18N
+        LabUser.setText("User");
 
         jLabel2.setFont(new java.awt.Font("Courier New", 0, 12)); // NOI18N
         jLabel2.setText("CoachID");
@@ -78,7 +83,7 @@ public class SearchCoach extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jButton1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
+                .addComponent(LabUser)
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(77, Short.MAX_VALUE)
@@ -107,7 +112,7 @@ public class SearchCoach extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
-                    .addComponent(jLabel1))
+                    .addComponent(LabUser))
                 .addGap(34, 34, 34)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
@@ -140,7 +145,8 @@ public class SearchCoach extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        MainCoach MC = new MainCoach();
+        String user = LabUser.getText();
+        MainCoach MC = new MainCoach(user);
         MC.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -181,9 +187,9 @@ public class SearchCoach extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel LabUser;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

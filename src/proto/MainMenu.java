@@ -13,10 +13,14 @@ public class MainMenu extends javax.swing.JFrame {
     /**
      * Creates new form MainMenu
      */
+    public MainMenu(String user){
+        initComponents();
+        LabUser.setText(user);
+    }
+    
     public MainMenu() {
         initComponents();
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -28,7 +32,7 @@ public class MainMenu extends javax.swing.JFrame {
 
         jButton1 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        LabUser = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
@@ -42,8 +46,8 @@ public class MainMenu extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(92, 225, 230));
 
-        jLabel1.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
-        jLabel1.setText("Admin");
+        LabUser.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
+        LabUser.setText("User");
 
         jButton2.setFont(new java.awt.Font("Courier New", 0, 12)); // NOI18N
         jButton2.setText("Sign Out");
@@ -96,8 +100,8 @@ public class MainMenu extends javax.swing.JFrame {
                 .addComponent(jButton2)
                 .addGap(33, 33, 33)
                 .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
-                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
+                .addComponent(LabUser)
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -117,7 +121,7 @@ public class MainMenu extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel1)
+                            .addComponent(LabUser)
                             .addComponent(jButton2)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(21, 21, 21)
@@ -154,25 +158,29 @@ public class MainMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        MainSwimmer MS = new MainSwimmer();
+        String user = LabUser.getText();
+        MainSwimmer MS = new MainSwimmer(user);
         MS.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        MainCoach MC = new MainCoach();
+        String user = LabUser.getText();
+        MainCoach MC = new MainCoach(user);
         MC.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        MainWeek MW = new MainWeek();
+        String user = LabUser.getText();
+        MainWeek MW = new MainWeek(user);
         MW.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        MainGala MG = new MainGala();
+        String user = LabUser.getText();
+        MainGala MG = new MainGala(user);
         MG.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton6ActionPerformed
@@ -213,13 +221,13 @@ public class MainMenu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel LabUser;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables

@@ -132,7 +132,6 @@ public class Login extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         FileReader fr = null;
         try {
-            MainMenu mm = new MainMenu();
             String user = txtUser.getText();
             String pass = txtPass.getText();
             String [] check;
@@ -151,11 +150,13 @@ public class Login extends javax.swing.JFrame {
                 Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
             }
             if(inFile){
+                MainMenu mm = new MainMenu(user);
                 mm.setVisible(true);
                 this.setVisible(false);
             }
             else{
                 JOptionPane.showMessageDialog(rootPane, "Username or Password is incorrect");
+                txtPass.setText("");
             }
         } catch (FileNotFoundException ex) {
             Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);

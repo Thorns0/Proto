@@ -16,6 +16,11 @@ public class MainSwimmer extends javax.swing.JFrame {
     public MainSwimmer() {
         initComponents();
     }
+    
+    public MainSwimmer(String user){
+        initComponents();
+        LabUser.setText(user);
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -28,7 +33,7 @@ public class MainSwimmer extends javax.swing.JFrame {
 
         jButton4 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        LabUser = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
@@ -42,8 +47,8 @@ public class MainSwimmer extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(36, 255, 31));
 
-        jLabel1.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
-        jLabel1.setText("Admin");
+        LabUser.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
+        LabUser.setText("User");
 
         jButton1.setFont(new java.awt.Font("Courier New", 0, 12)); // NOI18N
         jButton1.setText("Back");
@@ -88,8 +93,8 @@ public class MainSwimmer extends javax.swing.JFrame {
                 .addComponent(jButton1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
-                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+                .addComponent(LabUser)
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -111,7 +116,7 @@ public class MainSwimmer extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel1)
+                            .addComponent(LabUser)
                             .addComponent(jButton1)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(20, 20, 20)
@@ -129,7 +134,7 @@ public class MainSwimmer extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -199,12 +204,12 @@ public class MainSwimmer extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel LabUser;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables

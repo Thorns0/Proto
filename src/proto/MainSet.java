@@ -16,6 +16,11 @@ public class MainSet extends javax.swing.JFrame {
     public MainSet() {
         initComponents();
     }
+    
+    public MainSet(String user){
+        initComponents();
+        LabUser.setText(user);
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -28,7 +33,7 @@ public class MainSet extends javax.swing.JFrame {
 
         jButton2 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        LabUser = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
@@ -40,8 +45,8 @@ public class MainSet extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(179, 22, 235));
 
-        jLabel1.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
-        jLabel1.setText("Admin");
+        LabUser.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
+        LabUser.setText("User");
 
         jButton1.setFont(new java.awt.Font("Courier New", 0, 12)); // NOI18N
         jButton1.setText("Back");
@@ -83,7 +88,7 @@ public class MainSet extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jButton1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
+                .addComponent(LabUser)
                 .addContainerGap())
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(60, 60, 60)
@@ -102,7 +107,7 @@ public class MainSet extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton1)
-                    .addComponent(jLabel1))
+                    .addComponent(LabUser))
                 .addGap(57, 57, 57)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton4)
@@ -127,25 +132,29 @@ public class MainSet extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        MainWeek MW = new MainWeek();
+        String user = LabUser.getText();
+        MainWeek MW = new MainWeek(user);
         MW.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        AddDrill AD = new AddDrill();
+        String user = LabUser.getText();
+        AddDrill AD = new AddDrill(user);
         AD.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        CreateSet CS = new CreateSet();
+        String user = LabUser.getText();
+        CreateSet CS = new CreateSet(user);
         CS.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        ViewSet VS = new ViewSet();
+        String user = LabUser.getText();
+        ViewSet VS = new ViewSet(user);
         VS.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton3ActionPerformed
@@ -186,12 +195,12 @@ public class MainSet extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel LabUser;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
