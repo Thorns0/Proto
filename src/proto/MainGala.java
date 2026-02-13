@@ -123,19 +123,22 @@ public class MainGala extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        MainMenu MM = new MainMenu();
+        String user = LabUser.getText();
+        MainMenu MM = new MainMenu(user);
         MM.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        AddGala AG = new AddGala();
+        String user = LabUser.getText();
+        AddGala AG = new AddGala(user);
         AG.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        SearchGala SG = new SearchGala();
+        String user = LabUser.getText();
+        SearchGala SG = new SearchGala(user);
         SG.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton3ActionPerformed

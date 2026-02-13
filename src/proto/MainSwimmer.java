@@ -145,25 +145,29 @@ public class MainSwimmer extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        MainMenu f1 = new MainMenu();
+        String user = LabUser.getText();
+        MainMenu f1 = new MainMenu(user);
         f1.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        SortSearch s1 = new SortSearch();
+        String user = LabUser.getText();
+        SortSearch s1 = new SortSearch(user);
         s1.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        MoveSwim m1 = new MoveSwim();
+        String user = LabUser.getText();
+        MoveSwim m1 = new MoveSwim(user);
         m1.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        addSwim AS1 = new addSwim();
+        String user = LabUser.getText();
+        addSwim AS1 = new addSwim(user);
         AS1.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed

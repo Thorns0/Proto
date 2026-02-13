@@ -132,6 +132,7 @@ public class Login extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         FileReader fr = null;
         try {
+            //Checking if the username and password are in the file and if so open the main menu and pass over the username to the main menu
             String user = txtUser.getText();
             String pass = txtPass.getText();
             String [] check;
