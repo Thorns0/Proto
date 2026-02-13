@@ -135,4 +135,35 @@ public class Functions {
             System.out.println();
         }
     }
+    
+    //Checking if the current user is an approved member of the committe to see if they're able to open the window
+    public Boolean CheckComMem(String user){
+        String Line;
+        String [] store;
+        Boolean inFile = false;
+        FileReader fr = null;
+        try {
+            fr = new FileReader("ComMembers.txt");
+            BufferedReader br = new BufferedReader(fr);
+            try {
+                while((Line = br.readLine())!=null){
+                    store = Line.split(",");
+                    if(user.equals(store[1])){
+                        inFile = true;
+                    }
+                }
+            } catch (IOException ex) {
+                Logger.getLogger(Functions.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Functions.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                fr.close();
+            } catch (IOException ex) {
+                Logger.getLogger(Functions.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        return inFile;
+    }
 }

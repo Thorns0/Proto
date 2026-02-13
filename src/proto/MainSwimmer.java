@@ -4,6 +4,8 @@
  */
 package proto;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author adg19f
@@ -159,17 +161,29 @@ public class MainSwimmer extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        Functions fun = new Functions();
         String user = LabUser.getText();
-        MoveSwim m1 = new MoveSwim(user);
-        m1.setVisible(true);
-        this.setVisible(false);
+        if(fun.CheckComMem(user)){
+            MoveSwim m1 = new MoveSwim(user);
+            m1.setVisible(true);
+            this.setVisible(false);   
+        }
+        else{
+            JOptionPane.showMessageDialog(rootPane, "You must be an apporved member of the committe to access this window");
+        }
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        Functions fun = new Functions();
         String user = LabUser.getText();
-        addSwim AS1 = new addSwim(user);
-        AS1.setVisible(true);
-        this.setVisible(false);
+        if(fun.CheckComMem(user)){
+            addSwim AS1 = new addSwim(user);
+            AS1.setVisible(true);
+            this.setVisible(false);
+        }
+        else{
+            JOptionPane.showMessageDialog(rootPane, "You must be an apporved member of the committe to access this window");
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
