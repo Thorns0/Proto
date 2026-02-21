@@ -112,7 +112,7 @@ public class AddGala extends javax.swing.JFrame {
 
         txtAll.setColumns(20);
         txtAll.setRows(5);
-        txtAll.setText("Gala:\n");
+        txtAll.setText("Gala:");
         jScrollPane1.setViewportView(txtAll);
 
         jButton2.setFont(new java.awt.Font("Courier New", 0, 12)); // NOI18N
@@ -231,22 +231,20 @@ public class AddGala extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        String gala = txtGala.getText();
         String swimmer = (String) comSwim.getSelectedItem();
         String race = txtRace.getText();
         String toAdd;
         String content;
-        if(gala.isBlank()||swimmer.isBlank()||race.isBlank()){
+        if(swimmer.isBlank()||race.isBlank()){
             JOptionPane.showMessageDialog(rootPane, "Gala name, Swimmer and Races must comtain something");
         }
-        else if(gala.contains(",")||race.contains(",")){
+        else if(race.contains(",")){
             JOptionPane.showMessageDialog(rootPane, "No field can contain a , use a backslash to seperate items instead");
         }
         else{
-            toAdd = gala + " " + swimmer + " " + race;
+            toAdd = swimmer + " " + race;
             content = txtAll.getText();
             txtAll.setText(content + "\n" + toAdd);
-            txtGala.setText("");
             txtRace.setText("");
             comSwim.setSelectedIndex(0);
         }
@@ -255,8 +253,9 @@ public class AddGala extends javax.swing.JFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         String [] arry;
         String toSave = txtAll.getText();
-        if(toSave.equals("Gala:")){
-            JOptionPane.showMessageDialog(rootPane, "Gala must contain something");
+        String gala = txtGala.getText();
+        if(gala.isBlank()||toSave.equals("Gala:")){
+            JOptionPane.showMessageDialog(rootPane, "Gala name and contents must contain something");
         }
         else{
             FileWriter fw = null;
@@ -264,13 +263,16 @@ public class AddGala extends javax.swing.JFrame {
                 fw = new FileWriter("Galas.txt",true);
                 BufferedWriter bw = new BufferedWriter(fw);
                 arry = toSave.split("\n");
+                bw.append(gala+",");
                 for(int i=1;i<arry.length;i++){
                     bw.append(arry[i]+",");
                 }
                 bw.newLine();
                 bw.close();
                 fw.close();
+                JOptionPane.showMessageDialog(rootPane, "Gala saved");
                 txtAll.setText("Gala:");
+                txtGala.setText("");
             } catch (IOException ex) {
                 Logger.getLogger(AddGala.class.getName()).log(Level.SEVERE, null, ex);
             } finally {
