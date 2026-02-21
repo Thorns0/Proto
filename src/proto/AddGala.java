@@ -4,6 +4,16 @@
  */
 package proto;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author adg19f
@@ -18,8 +28,41 @@ public class AddGala extends javax.swing.JFrame {
     }
     
     public AddGala(String user){
-        initComponents();
-        LabUser.setText(user);
+        //Filling the combo box with the swimmers names so that they can be selected
+        FileReader fr = null;
+        try {
+            initComponents();
+            LabUser.setText(user);
+            Functions fun = new Functions();
+            String [] arry = new String [fun.lineInFile("Swimmers.txt")];
+            String [] temp;
+            String Line;
+            int i = 0;
+            //reading file and saving the second item (the swimmers names) to an array
+            fr = new FileReader("Swimmers.txt");
+            BufferedReader br = new BufferedReader(fr);
+            try {
+                while((Line = br.readLine())!=null){
+                    temp = Line.split(",");
+                    arry[i] = temp[1];
+                    i++;
+                }
+                //adding the contents of the array to the combo box 
+                for(int x=0; x<arry.length; x++){
+                    comSwim.addItem(arry[x]);
+                }
+            } catch (IOException ex) {
+                Logger.getLogger(AddGala.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(AddGala.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                fr.close();
+            } catch (IOException ex) {
+                Logger.getLogger(AddGala.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
     }
 
     /**
@@ -34,11 +77,11 @@ public class AddGala extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         LabUser = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jTextField2 = new javax.swing.JTextField();
+        txtGala = new javax.swing.JTextField();
+        comSwim = new javax.swing.JComboBox<>();
+        txtRace = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        txtAll = new javax.swing.JTextArea();
         jButton2 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -61,18 +104,24 @@ public class AddGala extends javax.swing.JFrame {
             }
         });
 
-        jTextField1.setFont(new java.awt.Font("Courier New", 0, 12)); // NOI18N
+        txtGala.setFont(new java.awt.Font("Courier New", 0, 12)); // NOI18N
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " " }));
+        comSwim.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " " }));
 
-        jTextField2.setFont(new java.awt.Font("Courier New", 0, 12)); // NOI18N
+        txtRace.setFont(new java.awt.Font("Courier New", 0, 12)); // NOI18N
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        txtAll.setColumns(20);
+        txtAll.setRows(5);
+        txtAll.setText("Gala:\n");
+        jScrollPane1.setViewportView(txtAll);
 
         jButton2.setFont(new java.awt.Font("Courier New", 0, 12)); // NOI18N
         jButton2.setText("Add");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jLabel2.setFont(new java.awt.Font("Courier New", 0, 12)); // NOI18N
         jLabel2.setText("Gala Name");
@@ -88,6 +137,11 @@ public class AddGala extends javax.swing.JFrame {
 
         jButton3.setFont(new java.awt.Font("Courier New", 0, 12)); // NOI18N
         jButton3.setText("Save");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -113,10 +167,10 @@ public class AddGala extends javax.swing.JFrame {
                             .addComponent(jLabel4))
                         .addGap(49, 49, 49)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtGala, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(comSwim, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtRace, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(jButton2))))
                     .addComponent(jLabel5))
@@ -135,15 +189,15 @@ public class AddGala extends javax.swing.JFrame {
                     .addComponent(jButton1))
                 .addGap(55, 55, 55)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtGala, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(comSwim, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtRace, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton2)
                     .addComponent(jLabel4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -175,6 +229,59 @@ public class AddGala extends javax.swing.JFrame {
         MG.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        String gala = txtGala.getText();
+        String swimmer = (String) comSwim.getSelectedItem();
+        String race = txtRace.getText();
+        String toAdd;
+        String content;
+        if(gala.isBlank()||swimmer.isBlank()||race.isBlank()){
+            JOptionPane.showMessageDialog(rootPane, "Gala name, Swimmer and Races must comtain something");
+        }
+        else if(gala.contains(",")||race.contains(",")){
+            JOptionPane.showMessageDialog(rootPane, "No field can contain a , use a backslash to seperate items instead");
+        }
+        else{
+            toAdd = gala + " " + swimmer + " " + race;
+            content = txtAll.getText();
+            txtAll.setText(content + "\n" + toAdd);
+            txtGala.setText("");
+            txtRace.setText("");
+            comSwim.setSelectedIndex(0);
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        String [] arry;
+        String toSave = txtAll.getText();
+        if(toSave.equals("Gala:")){
+            JOptionPane.showMessageDialog(rootPane, "Gala must contain something");
+        }
+        else{
+            FileWriter fw = null;
+            try {
+                fw = new FileWriter("Galas.txt",true);
+                BufferedWriter bw = new BufferedWriter(fw);
+                arry = toSave.split("\n");
+                for(int i=1;i<arry.length;i++){
+                    bw.append(arry[i]+",");
+                }
+                bw.newLine();
+                bw.close();
+                fw.close();
+                txtAll.setText("Gala:");
+            } catch (IOException ex) {
+                Logger.getLogger(AddGala.class.getName()).log(Level.SEVERE, null, ex);
+            } finally {
+                try {
+                    fw.close();
+                } catch (IOException ex) {
+                    Logger.getLogger(AddGala.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -213,18 +320,18 @@ public class AddGala extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel LabUser;
+    private javax.swing.JComboBox<String> comSwim;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextArea txtAll;
+    private javax.swing.JTextField txtGala;
+    private javax.swing.JTextField txtRace;
     // End of variables declaration//GEN-END:variables
 }

@@ -129,6 +129,7 @@ public class AddDrill extends javax.swing.JFrame {
         if(Drill.isBlank()){
             JOptionPane.showMessageDialog(rootPane, "Input a drill");
         }
+        //saving drill to the file and clearing input fields
         else{
             FileWriter fw = null;
             try {

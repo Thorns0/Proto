@@ -27,6 +27,7 @@ public class ViewRota extends javax.swing.JFrame {
     
     public ViewRota(String user) {
         initComponents();
+        //Setting the comtents of the combo box to be the dates that have been saved
         LabUser.setText(user);
         Functions fun = new Functions();
         String [] arry = new String [fun.lineInFile("Rota.txt")];

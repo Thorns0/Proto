@@ -424,7 +424,7 @@ public class AddCoach extends javax.swing.JFrame {
         int IDnum;
         String IDnumStore;
         String ID;
-        
+        //ensuring that all of the data is correct and there are no blanks
         if(user.isBlank()||pass.isBlank()||ComMem.isBlank()||Fname.isBlank()||Lname.isBlank()||email.isBlank()||phone.isBlank()||add1.isBlank()||add2.isBlank()||add3.isBlank()||post.isBlank()||qual.isBlank()||mon.isBlank()||tue.isBlank()||thu.isBlank()||fri.isBlank()||sat.isBlank()||sun.isBlank()){
             JOptionPane.showMessageDialog(rootPane, "All fields must contain something");
         }
@@ -437,7 +437,7 @@ public class AddCoach extends javax.swing.JFrame {
         else if(user.contains(",")||pass.contains(",")||Fname.contains(",")||Lname.contains(",")||email.contains(",")||phone.contains(",")||add1.contains(",")||add2.contains(",")||add3.contains(",")||post.contains(",")||qual.contains(",")){
             JOptionPane.showMessageDialog(rootPane, "No fields can contain ,");
         }
-        
+        //reading the file to ensure that the user name isn't taken by another user
         else{
             FileReader fr = null;
             try {
@@ -467,6 +467,7 @@ public class AddCoach extends javax.swing.JFrame {
             if(sameUser){
                 JOptionPane.showMessageDialog(rootPane, "Username is taken, please enter a different username");
             }
+            //Saving the user to the file and clearing all of the input fields
             else{
                 IDnum = fun.CreateID("Coaches.txt");
                 IDnumStore = Integer.toString(IDnum);
@@ -498,6 +499,7 @@ public class AddCoach extends javax.swing.JFrame {
                     AvaFri.setSelectedIndex(0);
                     AvaSat.setSelectedIndex(0);
                     AvaSun.setSelectedIndex(0);
+                    //Saving the username and CoachID of the users that are approved committe members to a seperate file to be used for access levels later
                     if(ComMem.equals("Yes")){
                         FileWriter FW = new FileWriter("ComMembers.txt", true);
                         BufferedWriter BW = new BufferedWriter(FW);

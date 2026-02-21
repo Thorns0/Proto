@@ -331,7 +331,7 @@ public class CreateSet extends javax.swing.JFrame {
                 //looping through the array and saving it to the file, skipping the first item as that is the Set: which isn't needed
                 for(int i=1; i<arry.length;i++){
                 bw.append(arry[i] + ",");
-            }
+                }
                 bw.newLine();
                 bw.close();
                 fw.close();
