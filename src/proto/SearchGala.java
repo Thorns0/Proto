@@ -4,6 +4,14 @@
  */
 package proto;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author adg19f
@@ -18,8 +26,38 @@ public class SearchGala extends javax.swing.JFrame {
     }
     
     public SearchGala(String user){
-        initComponents();
-        LabUser.setText(user);
+        FileReader fr = null;
+        try {
+            initComponents();
+            LabUser.setText(user);
+            Functions fun = new Functions();
+            String [] arry = new String [fun.lineInFile("Galas.txt")];
+            String [] temp;
+            String Line;
+            int i = 0;
+            fr = new FileReader("Galas.txt");
+            BufferedReader br = new BufferedReader(fr);
+            try {
+                while((Line = br.readLine())!=null){
+                    temp = Line.split(",");
+                    arry [i] = temp[0];
+                    i++;
+                }
+                for(int x=0;x<arry.length;x++){
+                    comGala.addItem(arry[x]);
+                }
+            } catch (IOException ex) {
+                Logger.getLogger(SearchGala.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(SearchGala.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                fr.close();
+            } catch (IOException ex) {
+                Logger.getLogger(SearchGala.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
     }
 
     /**
@@ -35,10 +73,10 @@ public class SearchGala extends javax.swing.JFrame {
         LabUser = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        txtDisplay = new javax.swing.JTextArea();
+        comGala = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -58,14 +96,20 @@ public class SearchGala extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Courier New", 0, 12)); // NOI18N
         jLabel2.setText("Gala name");
 
-        jTextField1.setFont(new java.awt.Font("Courier New", 0, 12)); // NOI18N
-
         jButton2.setFont(new java.awt.Font("Courier New", 0, 12)); // NOI18N
         jButton2.setText("Search");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        txtDisplay.setColumns(20);
+        txtDisplay.setRows(5);
+        txtDisplay.setText("Gala:");
+        jScrollPane1.setViewportView(txtDisplay);
+
+        comGala.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "" }));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -81,9 +125,9 @@ public class SearchGala extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(115, 115, 115)
                         .addComponent(jLabel2)
-                        .addGap(18, 18, 18)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 106, Short.MAX_VALUE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(comGala, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
@@ -91,7 +135,7 @@ public class SearchGala extends javax.swing.JFrame {
                 .addGap(170, 170, 170))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 406, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -101,10 +145,10 @@ public class SearchGala extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton1)
                     .addComponent(LabUser))
-                .addGap(61, 61, 61)
+                .addGap(60, 60, 60)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(comGala, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jButton2)
                 .addGap(18, 18, 18)
@@ -132,6 +176,55 @@ public class SearchGala extends javax.swing.JFrame {
         MG.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        Functions fun = new Functions();
+        txtDisplay.setText("Gala:");
+        String gala = (String) comGala.getSelectedItem();
+        String [] temp;
+        String [] arry = new String [fun.lineInFile("Galas.txt")];
+        String Line;
+        String content;
+        Boolean found = false;
+        if(gala.isBlank()){
+            JOptionPane.showMessageDialog(rootPane, "Please select a gala");
+        }
+        else{
+            FileReader fr = null;
+            try {
+                fr = new FileReader("Galas.txt");
+                BufferedReader br = new BufferedReader(fr);
+                try {
+                    while((Line = br.readLine())!=null){
+                        temp = Line.split(",");
+                        if(temp[0].equals(gala)){
+                            arry = Line.split(",");
+                            found = true;
+                        }
+                    }
+                    if(found){
+                        for(int i=1;i<arry.length;i++){
+                            content = txtDisplay.getText();
+                            txtDisplay.setText(content+"\n"+arry[i]);
+                        }
+                    }
+                    else{
+                        JOptionPane.showMessageDialog(rootPane, "Gala not found");
+                    }
+                } catch (IOException ex) {
+                    Logger.getLogger(SearchGala.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            } catch (FileNotFoundException ex) {
+                Logger.getLogger(SearchGala.class.getName()).log(Level.SEVERE, null, ex);
+            } finally {
+                try {
+                    fr.close();
+                } catch (IOException ex) {
+                    Logger.getLogger(SearchGala.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -170,12 +263,12 @@ public class SearchGala extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel LabUser;
+    private javax.swing.JComboBox<String> comGala;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextArea txtDisplay;
     // End of variables declaration//GEN-END:variables
 }

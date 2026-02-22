@@ -101,7 +101,7 @@ public class ViewSet extends javax.swing.JFrame {
         jLabel2.setText("Date");
 
         Datebox.setFont(new java.awt.Font("Courier New", 0, 12)); // NOI18N
-        Datebox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " " }));
+        Datebox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "" }));
 
         jButton3.setFont(new java.awt.Font("Courier New", 0, 12)); // NOI18N
         jButton3.setText("Search");
