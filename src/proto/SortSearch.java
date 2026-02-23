@@ -244,6 +244,7 @@ public class SortSearch extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        String user = LabUser.getText();
         String fname = txtFname.getText();
         String lname = txtLname.getText();
         String sID = txtID.getText();
@@ -318,7 +319,7 @@ public class SortSearch extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(rootPane, "Error, how?");
             }
             else{
-                DisSwim DS = new DisSwim(items);
+                DisSwim DS = new DisSwim(items,user);
                 DS.setVisible(true);
                 this.setVisible(false);
             }
@@ -329,6 +330,7 @@ public class SortSearch extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        String user = LabUser.getText();
         Functions fun = new Functions();
         FileReader fr = null;
         try {
@@ -351,7 +353,7 @@ public class SortSearch extends javax.swing.JFrame {
                             i++;
                         }
                 }
-                DisGroup DG = new DisGroup(items);
+                DisGroup DG = new DisGroup(items,user);
                 DG.setVisible(true);
                 this.setVisible(false);
             } catch (IOException ex) {
@@ -369,6 +371,7 @@ public class SortSearch extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        String user = LabUser.getText();
         Functions fun = new Functions();
         FileReader fr = null;
         try {
@@ -391,7 +394,7 @@ public class SortSearch extends javax.swing.JFrame {
                             i++;
                         }
                 }
-                DisGroup DG = new DisGroup(items);
+                DisGroup DG = new DisGroup(items,user);
                 DG.setVisible(true);
                 this.setVisible(false);
             } catch (IOException ex) {
@@ -409,6 +412,7 @@ public class SortSearch extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        String user = LabUser.getText();
         Functions fun = new Functions();
         FileReader fr = null;
         try {
@@ -431,7 +435,7 @@ public class SortSearch extends javax.swing.JFrame {
                             i++;
                         }
                 }
-                DisGroup DG = new DisGroup(items);
+                DisGroup DG = new DisGroup(items,user);
                 DG.setVisible(true);
                 this.setVisible(false);
             } catch (IOException ex) {
@@ -449,6 +453,7 @@ public class SortSearch extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        String user = LabUser.getText();
         Functions fun = new Functions();
         FileReader fr = null;
         try {
@@ -471,7 +476,7 @@ public class SortSearch extends javax.swing.JFrame {
                             i++;
                         }
                 }
-                DisGroup DG = new DisGroup(items);
+                DisGroup DG = new DisGroup(items,user);
                 DG.setVisible(true);
                 this.setVisible(false);
             } catch (IOException ex) {
@@ -489,6 +494,7 @@ public class SortSearch extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        String user = LabUser.getText();
         Functions fun = new Functions();
         FileReader fr = null;
         try {
@@ -511,7 +517,7 @@ public class SortSearch extends javax.swing.JFrame {
                             i++;
                         }
                 }
-                DisGroup DG = new DisGroup(items);
+                DisGroup DG = new DisGroup(items,user);
                 DG.setVisible(true);
                 this.setVisible(false);
             } catch (IOException ex) {
@@ -529,6 +535,7 @@ public class SortSearch extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        String user = LabUser.getText();
         Functions fun = new Functions();
         FileReader fr = null;
         try {
@@ -551,7 +558,7 @@ public class SortSearch extends javax.swing.JFrame {
                             i++;
                         }
                 }
-                DisGroup DG = new DisGroup(items);
+                DisGroup DG = new DisGroup(items,user);
                 DG.setVisible(true);
                 this.setVisible(false);
             } catch (IOException ex) {

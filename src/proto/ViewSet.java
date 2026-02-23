@@ -172,6 +172,7 @@ public class ViewSet extends javax.swing.JFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         FileReader fr = null;
         try {
+            String user = LabUser.getText();
             String date = (String) Datebox.getSelectedItem();
             String Line;
             String [] arr;
@@ -182,7 +183,7 @@ public class ViewSet extends javax.swing.JFrame {
                 while((Line = br.readLine())!=null && found){
                     arr = Line.split(",");
                     if(arr[0].equals(date)){
-                        DisSet DS = new DisSet(arr);
+                        DisSet DS = new DisSet(arr, user);
                         DS.setVisible(true);
                         this.setVisible(false);
                         found = false;

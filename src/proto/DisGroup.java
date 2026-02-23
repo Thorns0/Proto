@@ -17,9 +17,10 @@ public class DisGroup extends javax.swing.JFrame {
         initComponents();
     }
     
-    public DisGroup(String arry[][]){
+    public DisGroup(String arry[][], String user){
         //already been given 2d array (TABLES) use initComponets to be able to do anything
         initComponents();
+        LabUser.setText(user);
         String content;
         //first for loop loops through each array, second loops through each item in each array
         for(int i=0;i<arry.length;i++){
@@ -48,6 +49,7 @@ public class DisGroup extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         SwimmersDis = new javax.swing.JTextArea();
         jButton1 = new javax.swing.JButton();
+        LabUser = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -68,6 +70,9 @@ public class DisGroup extends javax.swing.JFrame {
             }
         });
 
+        LabUser.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
+        LabUser.setText("User");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -77,17 +82,21 @@ public class DisGroup extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 471, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Swimmers)
-                            .addComponent(jButton1))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addComponent(Swimmers)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jButton1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(LabUser)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jButton1)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(LabUser))
                 .addGap(11, 11, 11)
                 .addComponent(Swimmers)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -110,7 +119,8 @@ public class DisGroup extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        SortSearch SoS = new SortSearch();
+        String user = LabUser.getText();
+        SortSearch SoS = new SortSearch(user);
         SoS.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -151,6 +161,7 @@ public class DisGroup extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel LabUser;
     private javax.swing.JLabel Swimmers;
     private javax.swing.JTextArea SwimmersDis;
     private javax.swing.JButton jButton1;

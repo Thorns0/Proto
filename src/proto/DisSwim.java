@@ -17,8 +17,9 @@ public class DisSwim extends javax.swing.JFrame {
         initComponents();
     }
     
-    public DisSwim(String [] items){
+    public DisSwim(String [] items,String user){
         initComponents();
+        LabUser.setText(user);
         for(int i=0; i<items.length; i++){
             txtDis.append(items[i] + ", ");
         }
@@ -38,6 +39,7 @@ public class DisSwim extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         txtDis = new javax.swing.JTextArea();
         Back = new javax.swing.JButton();
+        LabUser = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -67,6 +69,9 @@ public class DisSwim extends javax.swing.JFrame {
             }
         });
 
+        LabUser.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
+        LabUser.setText("User");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -74,13 +79,17 @@ public class DisSwim extends javax.swing.JFrame {
             .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 477, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(Back)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(LabUser)
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(Back)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Back)
+                    .addComponent(LabUser))
                 .addGap(64, 64, 64)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(19, Short.MAX_VALUE))
@@ -101,7 +110,8 @@ public class DisSwim extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackActionPerformed
-        SortSearch sort = new SortSearch();
+        String user = LabUser.getText();
+        SortSearch sort = new SortSearch(user);
         sort.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_BackActionPerformed
@@ -143,6 +153,7 @@ public class DisSwim extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Back;
+    private javax.swing.JLabel LabUser;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
