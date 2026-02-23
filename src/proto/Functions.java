@@ -204,4 +204,59 @@ public class Functions {
         String [] fail = null;
         return fail;
     }
+    
+    //Is checking if the date submited is a monday
+    public Boolean IsItMONDAY(String date){
+        int day = Integer.parseInt(date.substring(0, 2));
+        int month = Integer.parseInt(date.substring(3, 5));
+        int year = Integer.parseInt(date.substring(6));
+        int comDay = 1;
+        int comMon = 1;
+        int comYear = 2025;
+        int inc7 = 7;
+        Boolean isMon = false;
+        //looping through all dates between 2025 and 2075
+        while(comYear<2076){
+            //chacking to see if the the date given is a monday, if so ending the loop
+            if(day==comDay&&month==comMon&&year==comYear){
+                isMon = true;
+                year = 2080;
+            }
+            //incrementing the date to the next monday
+            else{
+                while(inc7>0){
+                    comDay++;
+                    if(comMon==9||comMon==4||comMon==6||comMon==11){
+                        if(comDay>30){
+                            comDay = 1;
+                            comMon++;
+                        }
+                    }
+                    else if(comMon==2||comMon==3||comMon==5|comMon==7||comMon==8||comMon==10){
+                        if(comDay>31){
+                            comDay=1;
+                            comMon++;
+                        }
+                    }
+                    else if(comMon==12){
+                        if(comDay>31){
+                            comDay=1;
+                            comMon=1;
+                            comYear++;
+                        }
+                    }
+                    else if(comMon==1){
+                        
+                    }
+                }
+            }
+        }
+        return isMon;
+        // leap years: 2028 2032 2036 2040 2044 2048 2052 2056 2060 2064 2068 2072
+        //jan feb mar apr may jun july aug sep oct nov dec
+        //30 days: sep apr jun nov
+        //31 days: feb mar may july aug oct dec
+        //28 days: jan
+        //29 days: jan evey 4 years
+    }
 }
