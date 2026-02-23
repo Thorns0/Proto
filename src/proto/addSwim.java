@@ -120,6 +120,11 @@ public class addSwim extends javax.swing.JFrame {
         txtGname.setFont(new java.awt.Font("Courier New", 0, 12)); // NOI18N
 
         txtEmail.setFont(new java.awt.Font("Courier New", 0, 12)); // NOI18N
+        txtEmail.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtEmailActionPerformed(evt);
+            }
+        });
 
         txtPhone.setFont(new java.awt.Font("Courier New", 0, 12)); // NOI18N
 
@@ -342,6 +347,10 @@ public class addSwim extends javax.swing.JFrame {
         }
       }
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void txtEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmailActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtEmailActionPerformed
 
     /**
      * @param args the command line arguments

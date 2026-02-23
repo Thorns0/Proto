@@ -166,4 +166,42 @@ public class Functions {
         }
         return inFile;
     }
+    
+    //Checking if an item in a certain position of a file is a Yes or a No and returning the coaches name if its a yes
+    //Use to see what days coaches are avalible to be on poolside on each day
+    public String [] AvalibleForDay(String file, int num){
+        Functions fun = new Functions();
+        FileReader fr = null;
+        try {
+            String [] arry = new String [fun.lineInFile(file)];
+            String [] temp;
+            int i = 0;
+            String Line;
+            fr = new FileReader(file);
+            BufferedReader br = new BufferedReader(fr);
+            try {
+                //reading through file checing to see if specific item is Yes to check if they are avalible
+                while((Line=br.readLine())!=null){
+                    temp=Line.split(",");
+                    if(temp[num].equals("Yes")){
+                        arry[i] = temp[4];
+                        i++;
+                    }
+                }
+                return arry;
+            } catch (IOException ex) {
+                Logger.getLogger(Functions.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Functions.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                fr.close();
+            } catch (IOException ex) {
+                Logger.getLogger(Functions.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        String [] fail = null;
+        return fail;
+    }
 }

@@ -1,2 +1,4 @@
 CH0,Admin,LetMeIn,Yes,Admin,Admin,RaysAdmin@gmail.com,19237465019,Mold Road,Ruthin,Denbishire,LL15 1EG,n/a,No,No,No,No,No,No
 CH1,Robby1,PassW0rd,No,Robert,Robertson,RobertRob@gmail.com,18475019273,15 Big Street,Townsplace,Wrexham,LL17 1SI,Level 2 coach/ First aid,Yes,No,Yes,Yes,No,No
+CH2,Karen,pass,Yes,Karen,Smith,KarenSmith@gmail.com,10947584039,17 Big Street,Townsplace,Wrexham,LL17 1SI,Level 1 coach/ First aid,No,Yes,Yes,No,Yes,Yes
+CH3,Fish,Fish,No,Rose,Jhonson,Rose@gmail.com,19564090903,19 Road,Town,Wrexham,LL11 1SS,Level 3 coach,Yes,Yes,No,Yes,No,Yes

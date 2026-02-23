@@ -26,7 +26,47 @@ public class CreateRota extends javax.swing.JFrame {
     
     public CreateRota(String user){
         initComponents();
+        int x = 0;
+        Functions fun = new Functions();
         LabUser.setText(user);
+        String thing;
+        String [] mon = fun.AvalibleForDay("Coaches.txt", 13);
+        String [] tue = fun.AvalibleForDay("Coaches.txt", 14);
+        String [] thu = fun.AvalibleForDay("Coaches.txt", 15);
+        String [] fri = fun.AvalibleForDay("Coaches.txt", 16);
+        String [] sat = fun.AvalibleForDay("Coaches.txt", 17);
+        String [] sun = fun.AvalibleForDay("Coaches.txt", 18);
+        for(int i=0;i<mon.length;i++){
+            if((thing = mon[i])!=null){
+                ComMon.addItem(mon[i]);
+            }
+        }
+        for(int i=0;i<tue.length;i++){
+            if((thing = tue[i])!=null){
+                ComTue.addItem(tue[i]);
+            }
+        }
+        for(int i=0;i<thu.length;i++){
+            if((thing = thu[i])!=null){
+                ComThu.addItem(thu[i]);
+            }
+        }
+        for(int i=0;i<fri.length;i++){
+            if((thing = fri[i])!=null){
+                ComFri.addItem(fri[i]);
+            }
+        }
+        for(int i=0;i<sat.length;i++){
+            if((thing = sat[i])!=null){
+                ComSat.addItem(sat[i]);
+            }
+        }
+        for(int i=0;i<sun.length;i++){
+            if((thing = sun[i])!=null){
+                ComSun.addItem(sun[i]);
+            }
+        }
+        
     }
 
     /**
@@ -144,42 +184,42 @@ public class CreateRota extends javax.swing.JFrame {
             }
         });
 
-        ComMon.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "Karren", "Kate", "Karl" }));
+        ComMon.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "" }));
         ComMon.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ComMonActionPerformed(evt);
             }
         });
 
-        ComTue.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "Karren", "Kate", "Karl" }));
+        ComTue.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "" }));
         ComTue.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ComTueActionPerformed(evt);
             }
         });
 
-        ComThu.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "Karren", "Kate", "Karl" }));
+        ComThu.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "" }));
         ComThu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ComThuActionPerformed(evt);
             }
         });
 
-        ComFri.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "Karren", "Kate", "Karl" }));
+        ComFri.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "" }));
         ComFri.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ComFriActionPerformed(evt);
             }
         });
 
-        ComSat.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "Karren", "Kate", "Karl" }));
+        ComSat.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "" }));
         ComSat.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ComSatActionPerformed(evt);
             }
         });
 
-        ComSun.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "Karren", "Kate", "Karl" }));
+        ComSun.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "" }));
         ComSun.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ComSunActionPerformed(evt);
