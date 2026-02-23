@@ -210,8 +210,8 @@ public class Functions {
         int day = Integer.parseInt(date.substring(0, 2));
         int month = Integer.parseInt(date.substring(3, 5));
         int year = Integer.parseInt(date.substring(6));
-        int comDay = 1;
-        int comMon = 1;
+        int comDay = 06;
+        int comMon = 01;
         int comYear = 2025;
         int inc7 = 7;
         Boolean isMon = false;
@@ -220,10 +220,11 @@ public class Functions {
             //chacking to see if the the date given is a monday, if so ending the loop
             if(day==comDay&&month==comMon&&year==comYear){
                 isMon = true;
-                year = 2080;
+                return isMon;
             }
             //incrementing the date to the next monday
             else{
+                inc7 = 7;
                 while(inc7>0){
                     comDay++;
                     if(comMon==9||comMon==4||comMon==6||comMon==11){
@@ -232,7 +233,7 @@ public class Functions {
                             comMon++;
                         }
                     }
-                    else if(comMon==2||comMon==3||comMon==5|comMon==7||comMon==8||comMon==10){
+                    else if(comMon==1||comMon==3||comMon==5|comMon==7||comMon==8||comMon==10){
                         if(comDay>31){
                             comDay=1;
                             comMon++;
@@ -245,9 +246,21 @@ public class Functions {
                             comYear++;
                         }
                     }
-                    else if(comMon==1){
-                        
+                    else if(comMon==2){
+                        if(comYear==2028||comYear==2032||comYear==2036||comYear==2040||comYear==2044||comYear==2048||comYear==2052||comYear==2056||comYear==2060||comYear==2064||comYear==2068||comYear==2072){
+                            if(comDay>29){
+                                comDay = 1;
+                                comMon++;
+                            }
+                        }
+                        else{
+                            if(comDay>28){
+                                comDay = 1;
+                                comMon++;
+                            }
+                        }
                     }
+                    inc7--;
                 }
             }
         }

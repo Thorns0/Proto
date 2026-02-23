@@ -454,6 +454,7 @@ public class CreateRota extends javax.swing.JFrame {
     }//GEN-LAST:event_ComWeek1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        Functions fun = new Functions();
         String week1 = (String) ComWeek1.getSelectedItem();
         String week2 = (String) ComWeek2.getSelectedItem();
         String week3 = (String) ComWeek3.getSelectedItem();
@@ -463,12 +464,16 @@ public class CreateRota extends javax.swing.JFrame {
         String Fri = txtFriday.getText();
         String Sat = txtSaturday.getText();
         String Sun = txtSunday.getText();
+        String date = week1+"/"+week2+"/"+week3;
         
         if(week1.isBlank()||week2.isBlank()||week3.isBlank()||Mon.isBlank()||Tue.isBlank()||Thu.isBlank()||Fri.isBlank()||Sat.isBlank()||Sun.isBlank()){
             JOptionPane.showMessageDialog(rootPane, "All fields must be filled in");
         }
         else if(Mon.contains(",")||Tue.contains(",")||Thu.contains(",")||Fri.contains(",")||Sun.contains(",")||Sat.contains(",")){
             JOptionPane.showMessageDialog(rootPane, "Fields can't contain commas, seperate coaches with a space");
+        }
+        else if(fun.IsItMONDAY(date)==false){
+            JOptionPane.showMessageDialog(rootPane, "Date of week start must be a monday");
         }
         else{
             FileWriter fw = null;
