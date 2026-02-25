@@ -20,17 +20,22 @@ public class DisGroup extends javax.swing.JFrame {
     public DisGroup(String arry[][], String user){
         //already been given 2d array (TABLES) use initComponets to be able to do anything
         initComponents();
+        Functions fun = new Functions();
         LabUser.setText(user);
         String content;
-        //first for loop loops through each array, second loops through each item in each array
+        //first for loop loops through each line in the array, second loops through each item in each line
         for(int i=0;i<arry.length;i++){
             for(int y=0;y<arry[i].length;y++){
                 //adding each item from 1d of the array
-                SwimmersDis.append(arry[i][y] + ", ");
+                DisSwim.setValueAt(arry[i][y], i, y);
             }
-            //adding new lines between each array
-            content = SwimmersDis.getText();
-            SwimmersDis.setText(content + "\n");
+            if((fun.CheckComMem(user))==false){
+                DisSwim.setValueAt("Committe members only", i, 4);
+                DisSwim.setValueAt("Committe members only", i, 6);
+                DisSwim.setValueAt("Committe members only", i, 7);
+                DisSwim.setValueAt("Committe members only", i, 8);
+                DisSwim.setValueAt("Committe members only", i, 9);
+            }
         }
     }
 
@@ -46,8 +51,6 @@ public class DisGroup extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         Swimmers = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        SwimmersDis = new javax.swing.JTextArea();
         jButton1 = new javax.swing.JButton();
         LabUser = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -58,11 +61,6 @@ public class DisGroup extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(36, 255, 31));
 
         Swimmers.setText("Swimmers in group are: ");
-
-        SwimmersDis.setColumns(20);
-        SwimmersDis.setFont(new java.awt.Font("Courier New", 0, 12)); // NOI18N
-        SwimmersDis.setRows(5);
-        jScrollPane1.setViewportView(SwimmersDis);
 
         jButton1.setFont(new java.awt.Font("Courier New", 0, 12)); // NOI18N
         jButton1.setText("Back");
@@ -77,6 +75,22 @@ public class DisGroup extends javax.swing.JFrame {
 
         DisSwim.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null, null, null, null, null},
@@ -98,8 +112,6 @@ public class DisGroup extends javax.swing.JFrame {
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 1287, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jButton1)
-                        .addGap(59, 59, 59)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(LabUser))
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -111,11 +123,9 @@ public class DisGroup extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jButton1)
-                        .addComponent(LabUser))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(LabUser))
                 .addGap(11, 11, 11)
                 .addComponent(Swimmers)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -183,10 +193,8 @@ public class DisGroup extends javax.swing.JFrame {
     private javax.swing.JTable DisSwim;
     private javax.swing.JLabel LabUser;
     private javax.swing.JLabel Swimmers;
-    private javax.swing.JTextArea SwimmersDis;
     private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     // End of variables declaration//GEN-END:variables
 }
