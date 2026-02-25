@@ -210,6 +210,7 @@ public class Functions {
         int day = Integer.parseInt(date.substring(0, 2));
         int month = Integer.parseInt(date.substring(3, 5));
         int year = Integer.parseInt(date.substring(6));
+        //setting base date to a monday to by used as the base comparison
         int comDay = 06;
         int comMon = 01;
         int comYear = 2025;
@@ -217,42 +218,51 @@ public class Functions {
         Boolean isMon = false;
         //looping through all dates between 2025 and 2075
         while(comYear<2076){
-            //chacking to see if the the date given is a monday, if so ending the loop
+            //checking to see if the the date given is a monday, if so ending the loop
             if(day==comDay&&month==comMon&&year==comYear){
                 isMon = true;
                 return isMon;
             }
-            //incrementing the date to the next monday
+            //incrementing the date to the next monday by increasing the day by 1 7 times (going to the next monday)
             else{
                 inc7 = 7;
                 while(inc7>0){
                     comDay++;
+                    //checking if the month has 30 days and if the day has gone byond that
                     if(comMon==9||comMon==4||comMon==6||comMon==11){
                         if(comDay>30){
+                            //if it has set the date to the first day of the next month
                             comDay = 1;
                             comMon++;
                         }
                     }
+                    //checking if the month has 31 days and if the day has gone byond that
                     else if(comMon==1||comMon==3||comMon==5|comMon==7||comMon==8||comMon==10){
                         if(comDay>31){
+                            //if it has set the date to the first on the next month
                             comDay=1;
                             comMon++;
                         }
                     }
+                    //checking if the month is the last of the year and if they day is greater than 31
                     else if(comMon==12){
+                        //if it is set the date to be the first of the first month of the next year
                         if(comDay>31){
                             comDay=1;
                             comMon=1;
                             comYear++;
                         }
                     }
+                    //checking if the month is january and if it is checking if it a leep year
                     else if(comMon==2){
                         if(comYear==2028||comYear==2032||comYear==2036||comYear==2040||comYear==2044||comYear==2048||comYear==2052||comYear==2056||comYear==2060||comYear==2064||comYear==2068||comYear==2072){
+                            //if it is go to the next month if the days is greater than 29
                             if(comDay>29){
                                 comDay = 1;
                                 comMon++;
                             }
                         }
+                        //If its not a leep year check that the day isn't greater than 28 and if it is setting the date to the 1st of the next month
                         else{
                             if(comDay>28){
                                 comDay = 1;
@@ -260,16 +270,11 @@ public class Functions {
                             }
                         }
                     }
+                    //decreasing the increment conter by one so it only increments by 7 days
                     inc7--;
                 }
             }
         }
         return isMon;
-        // leap years: 2028 2032 2036 2040 2044 2048 2052 2056 2060 2064 2068 2072
-        //jan feb mar apr may jun july aug sep oct nov dec
-        //30 days: sep apr jun nov
-        //31 days: feb mar may july aug oct dec
-        //28 days: jan
-        //29 days: jan evey 4 years
     }
 }
