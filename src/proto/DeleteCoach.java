@@ -4,6 +4,16 @@
  */
 package proto;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author adg19f
@@ -35,7 +45,7 @@ public class DeleteCoach extends javax.swing.JFrame {
         LabUser = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txtID = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -56,10 +66,15 @@ public class DeleteCoach extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
         jLabel2.setText("CoachID");
 
-        jTextField1.setFont(new java.awt.Font("Courier New", 0, 12)); // NOI18N
+        txtID.setFont(new java.awt.Font("Courier New", 0, 12)); // NOI18N
 
         jButton2.setFont(new java.awt.Font("Courier New", 0, 12)); // NOI18N
         jButton2.setText("Delete");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -76,7 +91,7 @@ public class DeleteCoach extends javax.swing.JFrame {
                         .addGap(74, 74, 74)
                         .addComponent(jLabel2)
                         .addGap(42, 42, 42)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 45, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -94,7 +109,7 @@ public class DeleteCoach extends javax.swing.JFrame {
                 .addGap(52, 52, 52)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton2)
                 .addContainerGap(45, Short.MAX_VALUE))
@@ -120,6 +135,176 @@ public class DeleteCoach extends javax.swing.JFrame {
         MC.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        Functions fun = new Functions();
+        String toGo = txtID.getText();
+        String Line;
+        Boolean notInFile = true;
+        String [][] arry = new String [fun.lineInFile("Coaches.txt")][19];
+        String [][] comMemarry = new String [fun.lineInFile("ComMembers.txt")][2];
+        String [] check;
+        String [] checkCom;
+        Boolean ComMem = false;
+        int i = 0;
+        int z = 0;
+        if(toGo.isBlank()){
+            JOptionPane.showMessageDialog(rootPane, "Enter CoachID to delete Coach");
+        }
+        //ensuring the Admin isn't being deleted
+        else if(toGo.equals("CH0")){
+            JOptionPane.showMessageDialog(rootPane, "Admin can not be deleted");
+        }
+        else{
+            FileReader Fr = null;
+            try {
+                FileReader fr = null;
+                try {
+                    fr = new FileReader("Coaches.txt");
+                    BufferedReader br = new BufferedReader(fr);
+                    try {
+                        //checking if coach is in the file
+                        while((Line = br.readLine())!=null){
+                            check = Line.split(",");
+                            if(check[0].equals(toGo)){
+                                notInFile = false;
+                            }
+                            //creating the list to be re-written into the file
+                            else{
+                                arry[i] = check;
+                                i++;
+                            }
+                        }
+                        br.close();
+                        fr.close();
+                    } catch (IOException ex) {
+                        Logger.getLogger(DeleteCoach.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                } catch (FileNotFoundException ex) {
+                    Logger.getLogger(DeleteCoach.class.getName()).log(Level.SEVERE, null, ex);
+                } finally {
+                    try {
+                        fr.close();
+                    } catch (IOException ex) {
+                        Logger.getLogger(DeleteCoach.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
+                if(notInFile){
+                    JOptionPane.showMessageDialog(rootPane, "Coach not in file");
+                }
+                else{
+                    FileWriter fw = null;
+                    try {
+                        FileWriter FW = null;
+                        try {
+                            //clearing the file
+                            FW = new FileWriter("Coaches.txt",false);
+                            BufferedWriter BW = new BufferedWriter(FW);
+                            BW.write("");
+                            BW.close();
+                            FW.close();
+                        } catch (IOException ex) {
+                            Logger.getLogger(DeleteCoach.class.getName()).log(Level.SEVERE, null, ex);
+                        } finally {
+                            try {
+                                FW.close();
+                            } catch (IOException ex) {
+                                Logger.getLogger(DeleteCoach.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+                        }
+                        //looping through the 2d arry and adding each item back to the file
+                        fw = new FileWriter("Coaches.txt",true);
+                        BufferedWriter bw = new BufferedWriter(fw);
+                        for(int x=0;x<arry.length-1;x++){
+                            for(int y=0;y<arry[x].length;y++){
+                                //ensuring , goes in the correct places to keep the formating consistant
+                                if(arry[x][y].equals(arry[x][0])){
+                                    bw.append(arry[x][y]);
+                                }
+                                else{
+                                    bw.append("," + arry[x][y]);
+                                }
+                            }
+                            bw.newLine();
+                        }
+                        bw.close();
+                        fw.close();
+                    } catch (IOException ex) {
+                        Logger.getLogger(DeleteCoach.class.getName()).log(Level.SEVERE, null, ex);
+                    } finally {
+                        try {
+                            fw.close();
+                        } catch (IOException ex) {
+                            Logger.getLogger(DeleteCoach.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                    }
+                    //checking of the coach being deleted is an approved member of the committe
+                    Fr = new FileReader("ComMembers.txt");
+                    BufferedReader Br = new BufferedReader(Fr);
+                    try {
+                        while((Line=Br.readLine())!=null){
+                            checkCom = Line.split(",");
+                            //if they are then the committe file needs to be re-written
+                            if(checkCom[0].equals(toGo)){
+                            ComMem = true;
+                            }
+                            else{
+                                comMemarry[z] = checkCom;
+                                z++;
+                            }
+                        }
+                } catch (IOException ex) {
+                    Logger.getLogger(DeleteCoach.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                    if(ComMem){
+                    FileWriter fileWrite;
+                    try {
+                        fileWrite = new FileWriter("ComMembers.txt",false);
+                        BufferedWriter buf = new BufferedWriter(fileWrite);
+                        //clearing the file
+                        buf.write("");
+                        buf.close();
+                        fileWrite.close();;
+                    } catch (IOException ex) {
+                        Logger.getLogger(DeleteCoach.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                    try {
+                        FileWriter Fw = new FileWriter("ComMembers.txt",true);
+                        BufferedWriter Bw = new BufferedWriter(Fw);
+                        //looping through 2d arry and re-writeing each item, ensuring commas go in the correct place
+                        for(int x=0;x<comMemarry.length-1;x++){
+                            for(int y=0;y<comMemarry[x].length;y++){
+                                if(comMemarry[x][y].equals(comMemarry[x][0])){
+                                    Bw.append(comMemarry[x][y]);
+                                }
+                                else{
+                                    Bw.append("," + comMemarry[x][y]);
+                                }
+                            }
+                            Bw.newLine();
+                        }
+                        Bw.close();
+                        Fw.close();
+                    } catch (IOException ex) {
+                        Logger.getLogger(DeleteCoach.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                    }
+                }
+                
+            }catch (FileNotFoundException ex) {
+                Logger.getLogger(DeleteCoach.class.getName()).log(Level.SEVERE, null, ex);
+            } finally {
+                try {
+                    Fr.close();
+                } catch (IOException ex) {
+                    Logger.getLogger(DeleteCoach.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            //stating that the user has been deleted and clearing the input fields
+            JOptionPane.showMessageDialog(rootPane, "Coach deleted from file");
+            txtID.setText("");
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -162,6 +347,6 @@ public class DeleteCoach extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField txtID;
     // End of variables declaration//GEN-END:variables
 }

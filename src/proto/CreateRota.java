@@ -39,7 +39,7 @@ public class CreateRota extends javax.swing.JFrame {
         for(int i=0;i<mon.length;i++){
             if((thing = mon[i])!=null){
                 ComMon.addItem(mon[i]);
-            }
+        }
         }
         for(int i=0;i<tue.length;i++){
             if((thing = tue[i])!=null){

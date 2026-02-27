@@ -165,7 +165,6 @@ public class MoveSwim extends javax.swing.JFrame {
         Functions fun = new Functions();
         String ID = txtID.getText();
         String Line;
-        //setting the lenght of the array to be the number of lines in the file -1 as one won't be saved
         String [][] arr = new String [fun.lineInFile("Swimmers.txt")][11];
         String [] toGo;
         int i = 0;
