@@ -30,11 +30,11 @@ public class DisGroup extends javax.swing.JFrame {
                 DisSwim.setValueAt(arry[i][y], i, y);
             }
             if((fun.CheckComMem(user))==false){
-                DisSwim.setValueAt("For committee", i, 4);
-                DisSwim.setValueAt("For committee", i, 6);
-                DisSwim.setValueAt("For committee", i, 7);
-                DisSwim.setValueAt("For committee", i, 8);
-                DisSwim.setValueAt("For committee", i, 9);
+                DisSwim.setValueAt("Committee only", i, 4);
+                DisSwim.setValueAt("Committee only", i, 6);
+                DisSwim.setValueAt("Committee only", i, 7);
+                DisSwim.setValueAt("Committee only", i, 8);
+                DisSwim.setValueAt("Committee only", i, 9);
             }
         }
     }

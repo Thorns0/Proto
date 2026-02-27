@@ -252,7 +252,6 @@ public class SortSearch extends javax.swing.JFrame {
         Boolean useID = true;
         Boolean found = false;
         String [] items = null;
-        String toShow = "";
         if(fname.isBlank()||lname.isBlank()){
             useName = false;
         }
