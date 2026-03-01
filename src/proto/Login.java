@@ -143,7 +143,7 @@ public class Login extends javax.swing.JFrame {
             try {
                 while((Line = br.readLine())!=null){
                     check = Line.split(",");
-                    if(check[1].equals(user)||check[2].equals(pass)){
+                    if(check[1].equals(user)&&check[2].equals(pass)){
                         inFile = true;
                     }
                 }

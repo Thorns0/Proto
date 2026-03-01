@@ -297,7 +297,7 @@ public class SortSearch extends javax.swing.JFrame {
                     while((Line=br.readLine())!=null && !found){
                         items=Line.split(",");
                         if(items[0].equals(sID)){
-                            found=true;
+                            found = true;
                         }
                     }
                 } catch (IOException ex) {
