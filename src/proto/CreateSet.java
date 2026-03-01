@@ -320,6 +320,9 @@ public class CreateSet extends javax.swing.JFrame {
         if(date1.isBlank()||date2.isBlank()||date3.isBlank()||set.isBlank()||set.equals("Set:")){
             JOptionPane.showMessageDialog(rootPane, "The set and date must contain something");
         }
+        else if(set.contains(",")){
+            JOptionPane.showMessageDialog(rootPane, "Set can't contain a comma");
+        }
         else{
             FileWriter fw = null;
             try {

@@ -257,6 +257,9 @@ public class AddGala extends javax.swing.JFrame {
         if(gala.isBlank()||toSave.equals("Gala:")){
             JOptionPane.showMessageDialog(rootPane, "Gala name and contents must contain something");
         }
+        else if(gala.contains(",")){
+            JOptionPane.showMessageDialog(rootPane, "Gala can't contain a comma");
+        }
         else{
             FileWriter fw = null;
             try {

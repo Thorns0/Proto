@@ -311,7 +311,10 @@ public class addSwim extends javax.swing.JFrame {
             }
             else if(Add1.contains(",") || Add2.contains(",") || Add3.contains(",")){
                 JOptionPane.showMessageDialog(rootPane, "Fields can't contain a ,");
-            } 
+            }
+            else if(Fname.contains(",")||Lname.contains(",")||Gname.contains(",")||Email.contains(",")||Phone.contains(",")||Add1.contains(",")||Add2.contains(",")||Add3.contains(",")){
+                JOptionPane.showMessageDialog(rootPane, "No field cna contain a comma");
+            }
             else{
             FileWriter fw = null;
         try {

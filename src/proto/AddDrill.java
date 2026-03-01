@@ -129,6 +129,9 @@ public class AddDrill extends javax.swing.JFrame {
         if(Drill.isBlank()){
             JOptionPane.showMessageDialog(rootPane, "Input a drill");
         }
+        else if(Drill.contains(",")){
+            JOptionPane.showMessageDialog(rootPane, "Drill can't contain a comma");
+        }
         //saving drill to the file and clearing input fields
         else{
             FileWriter fw = null;
