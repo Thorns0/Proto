@@ -476,7 +476,7 @@ public class CreateRota extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(rootPane, "Date of week start must be a monday");
         }
         else if(Mon.contains(",")||Tue.contains(",")||Thu.contains(",")||Fri.contains(",")||Sat.contains(",")||Sun.contains(",")){
-            JOptionPane.showMessageDialog(rootPane, "Don't edit the text areas. And don't put a comma in there");
+            JOptionPane.showMessageDialog(rootPane, "Don't edit the text fields. And don't put a comma in there");
         }
         else{
             FileWriter fw = null;
