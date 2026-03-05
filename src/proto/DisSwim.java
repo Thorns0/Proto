@@ -75,6 +75,7 @@ public class DisSwim extends javax.swing.JFrame {
         LabUser.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
         LabUser.setText("User");
 
+        showSwimmer.setFont(new java.awt.Font("Courier New", 0, 12)); // NOI18N
         showSwimmer.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null, null, null, null, null}

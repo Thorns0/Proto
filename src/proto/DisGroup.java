@@ -60,6 +60,7 @@ public class DisGroup extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(36, 255, 31));
 
+        Swimmers.setFont(new java.awt.Font("Courier New", 0, 12)); // NOI18N
         Swimmers.setText("Swimmers in group are: ");
 
         jButton1.setFont(new java.awt.Font("Courier New", 0, 12)); // NOI18N
@@ -73,6 +74,7 @@ public class DisGroup extends javax.swing.JFrame {
         LabUser.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
         LabUser.setText("User");
 
+        DisSwim.setFont(new java.awt.Font("Courier New", 0, 12)); // NOI18N
         DisSwim.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null, null, null, null, null},
@@ -129,7 +131,7 @@ public class DisGroup extends javax.swing.JFrame {
                 .addGap(11, 11, 11)
                 .addComponent(Swimmers)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 326, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 328, Short.MAX_VALUE)
                 .addContainerGap())
         );
 

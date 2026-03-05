@@ -47,6 +47,7 @@ public class DisCoach extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 166, 16));
 
+        jButton1.setFont(new java.awt.Font("Courier New", 0, 12)); // NOI18N
         jButton1.setText("Back");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -54,8 +55,10 @@ public class DisCoach extends javax.swing.JFrame {
             }
         });
 
+        LabUser.setFont(new java.awt.Font("Courier New", 0, 12)); // NOI18N
         LabUser.setText("User");
 
+        ShowCoach.setFont(new java.awt.Font("Courier New", 0, 12)); // NOI18N
         ShowCoach.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null, null, null, null, null, null, null}
