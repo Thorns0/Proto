@@ -45,6 +45,7 @@ public class Functions {
     }
     
     //Creating the number fo either swimmerID or coachID to ensure that they are all unique
+    //item to be given is the file to read
     public int CreateID(String file){
         String val = GetLastLine(file);
         String [] store;
@@ -63,6 +64,7 @@ public class Functions {
     }
     
     //counting the number of swimmers in a certain group
+    //second item to be given is the group to check
     public int countFile(String file, String find){
         FileReader fr = null;
             int num = 0;
@@ -125,16 +127,6 @@ public class Functions {
         return num;
     }
     
-    //printing a 2D array to the system
-    public void print2darry(String[][]arr){
-        for(int i=0;i<arr.length;i++){
-            for(int y=0;y<arr[i].length;y++){
-                System.out.print(arr[i][y]);
-                System.out.print(",");
-            }
-            System.out.println();
-        }
-    }
     
     //Checking if the current user is an approved member of the committe to see if they're able to open the window
     public Boolean CheckComMem(String user){
@@ -169,6 +161,7 @@ public class Functions {
     
     //Checking if an item in a certain position of a file is a Yes or a No and returning the coaches name if its a yes
     //Use to see what days coaches are avalible to be on poolside on each day
+    //First item to be given is teh file to check second item it the postition in the line to check e.g. 13 referes to monday 14 to tuesday
     public String [] AvalibleForDay(String file, int num){
         Functions fun = new Functions();
         FileReader fr = null;
