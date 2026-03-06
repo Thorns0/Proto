@@ -199,6 +199,7 @@ public class Functions {
     }
     
     //Is checking if the date submited is a monday
+    //Item to be given is the date that the user is inputting
     public Boolean IsItMONDAY(String date){
         int day = Integer.parseInt(date.substring(0, 2));
         int month = Integer.parseInt(date.substring(3, 5));
