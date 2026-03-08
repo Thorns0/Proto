@@ -26,7 +26,6 @@ public class CreateRota extends javax.swing.JFrame {
     
     public CreateRota(String user){
         initComponents();
-        int x = 0;
         Functions fun = new Functions();
         LabUser.setText(user);
         String thing;
